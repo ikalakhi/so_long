@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ikalakhi <ikalakhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/24 11:55:17 by ikalakhi          #+#    #+#             */
-/*   Updated: 2022/08/24 11:56:48 by ikalakhi         ###   ########.fr       */
+/*   Created: 2022/08/24 11:55:04 by ikalakhi          #+#    #+#             */
+/*   Updated: 2022/08/24 11:56:14 by ikalakhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-#include "external_functions/libft.h"
-# include <stdlib.h>
-# include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
-# include <unistd.h>
+void    error(char *s)
+{
+    int     i;
 
-void    error(char *s);
-
-char    *read_map(char  *av);
-
-# endif
+    i = 0;
+    while (s[i] != '\0')
+    {
+        write (fd, &s[i], 1);
+        i++;
+    }
+}
