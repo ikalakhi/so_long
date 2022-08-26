@@ -18,9 +18,14 @@
 # include <sys/types.h>
 # include <sys/uio.h>
 # include <unistd.h>
+# include <stdio.h>
 
 void    error(char *s);
 
-char    *read_map(char  *av);
+char    **read_map(char  *av);
+char    *join(char *s1, char *s2);
+
+int number_of_lines(int fd);
+int line_lenth(int  fd);
 
 # endif

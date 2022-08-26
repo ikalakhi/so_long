@@ -12,8 +12,8 @@
 
 NAME = so_long
 
-SRC = so_long.c so_long_utils.c map.c external_functions/get_next_line.c\
-		external_functions/get_next_line_utils.c
+SRC = so_long.c so_long_utils.c map.c  map_lenth.c join.c\
+		external_functions/get_next_line.c external_functions/get_next_line_utils.c
 
 OBJS = $(SRC:.c=.o)
 CFLAGS = -Wall -Wextra -Werror

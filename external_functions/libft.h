@@ -12,6 +12,7 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define BUFFER_SIZE 2
 # include <stdlib.h>
 # include <sys/types.h>
 # include <sys/uio.h>

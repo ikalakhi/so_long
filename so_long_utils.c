@@ -18,7 +18,8 @@ void    error(char *s)
     i = 0;
     while (s[i] != '\0')
     {
-        write (fd, &s[i], 1);
+        write (1, &s[i], 1);
         i++;
     }
+    exit(EXIT_FAILURE);
 }
