@@ -19,11 +19,11 @@ int main (int ac, char **av)
         error("Error\nUsage: './so_long mappath/mapname.ber'\n");
     map = read_map(av[1]);
     //printf("hello\n");
-    // int i = 0;
-    // while (map[i])
-    // {
-    //     printf("%s\n", map[i]);
-    //     i++;
-    // }
+    int i = 0;
+    while (map[i])
+    {
+        printf("%s\n", map[i]);
+        i++;
+    }
     return (0);
 }

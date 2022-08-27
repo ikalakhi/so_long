@@ -3,24 +3,37 @@
 char    **read_map(char  *av)
 {
     char    **map;
+    char    *temp;
     char    *line;
     int     fd;
     int     i;
 
+   
+    map = malloc(sizeof (char *) * (number_of_lines(av) + 1));
     fd = open(av,  O_RDONLY);
-    map = malloc(sizeof (char *) * (number_of_lines(fd) + 1));
     line = get_next_line(fd);
-    printf("fd =====> %d\n", fd);
-    printf("line =====> %s\n", line);
     i = 0;
-    while (i < 1)
+    while (line)
     {
-        map[i] = join(map[i], line);
-        printf("%s\n", map[0]);
+        temp = malloc(sizeof (char *) * (line_lenth(av) + 1));
+        map[i] = ft_strjoin(temp, line);
         free(line);
         line = get_next_line(fd);
         i++;
     }
-    // printf("%s\n", map[0]);
+    map[i] = NULL;
     return(map);
 }
+
+// char    **help_split(char **map)
+// {
+//     int i;
+
+//     i = 0;
+//     while (map)
+//     {
+//         map = ft_split(map[i], '\n');
+//         i++;
+//     }
+//     return (map);
+// }

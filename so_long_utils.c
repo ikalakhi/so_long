@@ -23,3 +23,21 @@ void    error(char *s)
     }
     exit(EXIT_FAILURE);
 }
+
+void    *ft_calloc(size_t count, size_t size)
+{
+    char    *tab;
+    size_t  i;
+
+    i = 0;
+    tab = malloc(count * size);
+    if (tab == (NULL))
+        return (NULL);
+    while (size > 0)
+    {
+        tab[i] = '\0';
+        size--;
+        i++;
+    }
+    return (tab);
+}

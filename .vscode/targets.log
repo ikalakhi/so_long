@@ -6,11 +6,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
- 
 
-# Make data base, printed on Fri Aug 26 07:55:29 2022
+# Make data base, printed on Sat Aug 27 09:12:02 2022
 
- 
 # Variables
 
 # automatic
@@ -18,7 +16,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # automatic
 ?F = $(notdir $?)
 # makefile (from `Makefile', line 15)
-SRC = so_long.c so_long_utils.c map.c  map_lenth.c join.c external_functions/get_next_line.c external_functions/get_next_line_utils.c
+SRC = so_long.c so_long_utils.c map.c  map_lenth.c external_functions/split.c external_functions/get_next_line.c external_functions/get_next_line_utils.c external_functions/substr.c external_functions/strdup.c
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # automatic
@@ -33,18 +31,18 @@ SHELL = /bin/sh
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
 _ = /usr/bin/make
-# makefile (from `Makefile', line 19)
-CFLAGS = -Wall -Wextra -Werror
+# makefile (from `Makefile', line 20)
+CFLAGS = -Wall -Wextra -Werror 
 # makefile (from `Makefile', line 1)
 MAKEFILE_LIST :=  Makefile
-# makefile (from `Makefile', line 18)
+# makefile (from `Makefile', line 19)
 OBJS = $(SRC:.c=.o)
 # environment
 VSCODE_CWD = /
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.ztmoSnZMDN/Render
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.GvMzT0DVnF/Render
 # environment
-PATH = /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
+PATH = /Users/ikalakhi/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
@@ -52,9 +50,11 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.3zz5yjGIgw/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.qQvnqrL0Wh/Listeners
 # automatic
 %F = $(notdir $%)
+# environment
+HOMEBREW_TEMP = /tmp/ikalakhi/Homebrew/Temp
 # environment
 PWD = /Users/ikalakhi/Desktop/so_long
 # environment
@@ -70,7 +70,7 @@ VSCODE_CODE_CACHE_PATH = /Users/ikalakhi/Library/Application Support/Code/Cached
 # environment
 LOGNAME = ikalakhi
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 ZSH = /Users/ikalakhi/.oh-my-zsh
 # environment
@@ -83,6 +83,8 @@ XPC_FLAGS = 0x0
 MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
+# environment
+HOMEBREW_CACHE = /tmp/ikalakhi/Homebrew/Caches
 # environment
 SHLVL = 1
 # default
@@ -116,7 +118,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.microsoft.VSCode.1296
+XPC_SERVICE_NAME = com.microsoft.VSCode.1240
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -142,9 +144,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 65466
+VSCODE_PID = 8013
 # variable set hash-table stats:
-# Load=65/1024=6%, Rehash=0, Collisions=3/93=3%
+# Load=67/1024=7%, Rehash=0, Collisions=3/95=3%
 
 # Pattern-specific Variable Values
 
@@ -152,9 +154,9 @@ VSCODE_PID = 65466
 
 # Directories
 
-# . (device 16777227, inode 9040): 21 files, no impossibilities.
+# . (device 16777227, inode 9040): 18 files, no impossibilities.
 
-# 21 files, no impossibilities in 1 directories.
+# 18 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -174,8 +176,7 @@ all: so_long
 # Not a target:
 external_functions/get_next_line_utils.o:
 #  Implicit rule search has been done.
- 
-#  Last modified 2022-08-25 14:54:03
+#  Last modified 2022-08-26 21:41:22
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -190,7 +191,16 @@ external_functions/get_next_line_utils.o:
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-24 20:03:26
+#  Last modified 2022-08-26 22:39:10
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+external_functions/substr.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-26 22:39:40
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -199,7 +209,7 @@ Makefile:
 # Not a target:
 map.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-25 14:54:03
+#  Last modified 2022-08-26 22:51:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -209,14 +219,23 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 29):
+#  commands to execute (from `Makefile', line 30):
 	rm -f $(NAME)
 	
 
 # Not a target:
+external_functions/strdup.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-26 22:39:53
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
 so_long_utils.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-25 14:54:03
+#  Last modified 2022-08-26 21:41:21
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -225,7 +244,7 @@ so_long_utils.o:
 # Not a target:
 map_lenth.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-25 14:54:03
+#  Last modified 2022-08-26 21:41:21
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -234,7 +253,7 @@ map_lenth.o:
 # Not a target:
 external_functions/get_next_line.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-25 14:54:03
+#  Last modified 2022-08-26 21:41:22
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -246,15 +265,6 @@ external_functions/get_next_line.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-join.o:
-#  Implicit rule search has been done.
-#  Last modified 2022-08-25 14:54:03
-#  File has been updated.
-#  Successfully updated.
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-
 re: fclean all
 #  Implicit rule search has not been done.
 #  Modification time never checked.
@@ -264,36 +274,46 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  commands to execute (from `Makefile', line 26):
+#  commands to execute (from `Makefile', line 27):
 	rm -f $(OBJS)
 	
 
-so_long: so_long.o so_long_utils.o map.o map_lenth.o join.o external_functions/get_next_line.o external_functions/get_next_line_utils.o
+so_long: so_long.o so_long_utils.o map.o map_lenth.o external_functions/split.o external_functions/get_next_line.o external_functions/get_next_line_utils.o external_functions/substr.o external_functions/strdup.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-08-25 14:54:04
+#  Last modified 2022-08-26 22:51:45
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
-#  commands to execute (from `Makefile', line 23):
+#  commands to execute (from `Makefile', line 24):
 	cc $(CFLAGS) $(SRC) -o $(NAME)
 	
 
 # Not a target:
 so_long.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-25 14:54:03
+#  Last modified 2022-08-26 22:31:22
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+external_functions/split.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-26 22:40:36
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=15/1024=1%, Rehash=0, Collisions=0/39=0%
+# Load=17/1024=2%, Rehash=0, Collisions=0/43=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
 
+ 
 # No general (`VPATH' variable) search path.
 
 # # of strings in strcache: 1
@@ -301,6 +321,6 @@ so_long.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Fri Aug 26 07:55:29 2022
+# Finished Make data base on Sat Aug 27 09:12:02 2022
 
  
