@@ -11,19 +11,6 @@
 /* ************************************************************************** */
 #include "so_long.h"
 
-void    error(char *s)
-{
-    int     i;
-
-    i = 0;
-    while (s[i] != '\0')
-    {
-        write (1, &s[i], 1);
-        i++;
-    }
-    exit(EXIT_FAILURE);
-}
-
 void    *ft_calloc(size_t count, size_t size)
 {
     char    *tab;

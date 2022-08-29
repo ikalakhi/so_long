@@ -2,13 +2,17 @@ make --dry-run --always-make --keep-going --print-directory
 make: Entering directory `/Users/ikalakhi/Desktop/so_long'
 cc -Wall -Wextra -Werror    -c -o so_long.o so_long.c
 cc -Wall -Wextra -Werror    -c -o so_long_utils.o so_long_utils.c
+ 
 cc -Wall -Wextra -Werror    -c -o map.o map.c
 cc -Wall -Wextra -Werror    -c -o map_lenth.o map_lenth.c
 cc -Wall -Wextra -Werror    -c -o external_functions/split.o external_functions/split.c
 cc -Wall -Wextra -Werror    -c -o external_functions/get_next_line.o external_functions/get_next_line.c
 cc -Wall -Wextra -Werror    -c -o external_functions/get_next_line_utils.o external_functions/get_next_line_utils.c
 cc -Wall -Wextra -Werror    -c -o external_functions/substr.o external_functions/substr.c
+ 
 cc -Wall -Wextra -Werror    -c -o external_functions/strdup.o external_functions/strdup.c
-cc -Wall -Wextra -Werror  so_long.c so_long_utils.c map.c  map_lenth.c external_functions/split.c external_functions/get_next_line.c external_functions/get_next_line_utils.c external_functions/substr.c external_functions/strdup.c -o so_long
+cc -Wall -Wextra -Werror    -c -o errors_handling.o errors_handling.c
+cc -Wall -Wextra -Werror    -c -o external_functions/map_chrch.o external_functions/map_chrch.c
+cc -Wall -Wextra -Werror  so_long.c so_long_utils.c map.c  map_lenth.c external_functions/split.c external_functions/get_next_line.c external_functions/get_next_line_utils.c external_functions/substr.c external_functions/strdup.c errors_handling.c external_functions/map_chrch.c -o so_long
 make: Leaving directory `/Users/ikalakhi/Desktop/so_long'
  

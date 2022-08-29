@@ -20,14 +20,28 @@
 # include <unistd.h>
 # include <stdio.h>
 
+//struct that hold the map dimension.
+typedef struct t_dimension
+{
+    int line_lenth;
+    int num_lines;
+} t_dimo;
+
 void    error(char *s);
+void    check_extension(char *av);
+void    components_chrch(char   *line);
+void    map_errors(char *av, char **map);
+void    map_components(char **map, char *av);
 void    *ft_calloc(size_t count, size_t size);
 
-char    **read_map(char  *av);
-char    **help_split(char **map);
+char    **help_split(char ***map);
 char    *join(char *s1, char *s2);
+char    **read_map(char  *av, t_dimo dimo);
 
-int number_of_lines(char *av);
-int line_lenth(char *av);
+int     line_lenth(char *av);
+int     number_of_lines(char *av);
+
+//function that initialize the map dimension.
+t_dimo   map_dimension(char  *av);
 
 # endif

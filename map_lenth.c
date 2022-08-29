@@ -8,6 +8,8 @@ int number_of_lines(char *av)
 
     number = 0;
     fd = open(av,  O_RDONLY);
+    if (fd < 0)
+        error("ERROR: no such file or directory\n");
     line = get_next_line(fd);
     if (line != NULL)
         number++;
@@ -16,7 +18,6 @@ int number_of_lines(char *av)
         free(line);
         line = get_next_line(fd);
         number++;
-    //printf("%s\n", line);
     }
     free(line);
     close (fd);
@@ -31,6 +32,8 @@ int line_lenth(char *av)
 
     lenth = 0;
     fd = open(av,  O_RDONLY);
+    if (fd < 0)
+        error("ERROR: no such file or directory\n");
     line = get_next_line(fd);
     if (!line)
         return (0);
@@ -38,4 +41,13 @@ int line_lenth(char *av)
     free(line);
     close (fd);
     return (lenth);
+}
+
+t_dimo  map_dimension(char  *av)
+{
+    t_dimo  dimo;
+
+    dimo.line_lenth = line_lenth(av);
+    dimo.num_lines = number_of_lines(av);
+    return (dimo);
 }

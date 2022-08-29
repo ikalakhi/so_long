@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-char    **read_map(char  *av)
+char    **read_map(char  *av, t_dimo dimo)
 {
     char    **map;
     char    *temp;
@@ -8,14 +8,15 @@ char    **read_map(char  *av)
     int     fd;
     int     i;
 
-   
-    map = malloc(sizeof (char *) * (number_of_lines(av) + 1));
+    map = malloc(sizeof (char *) * (dimo.num_lines + 1));
     fd = open(av,  O_RDONLY);
+    if (fd < 0)
+        error("ERROR: no such file or directory\n");
     line = get_next_line(fd);
     i = 0;
     while (line)
     {
-        temp = malloc(sizeof (char *) * (line_lenth(av) + 1));
+        temp = malloc(sizeof (char *) * (dimo.line_lenth + 1));
         map[i] = ft_strjoin(temp, line);
         free(line);
         line = get_next_line(fd);
@@ -25,15 +26,8 @@ char    **read_map(char  *av)
     return(map);
 }
 
-// char    **help_split(char **map)
-// {
-//     int i;
-
-//     i = 0;
-//     while (map)
-//     {
-//         map = ft_split(map[i], '\n');
-//         i++;
-//     }
-//     return (map);
-// }
+void    map_errors(char *av, char **map)
+{
+    check_extension(av);
+    map_components(map, av);
+}
