@@ -11,8 +11,6 @@ int number_of_lines(char *av)
     if (fd < 0)
         error("ERROR: no such file or directory\n");
     line = get_next_line(fd);
-    if (line != NULL)
-        number++;
     while (line != NULL)
     {
         free(line);

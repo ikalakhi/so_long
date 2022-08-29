@@ -20,9 +20,7 @@ int main (int ac, char **av)
         error("Error\nUsage: './so_long mappath/mapname.ber'\n");
     dimo = map_dimension(av[1]);
     map = read_map(av[1], dimo);
-    map_errors(av[1], map);
-    // if (dimo.line_lenth < dimo.num_lines)
-    //     error("Error\n: The map must be rectangular ");
+    map_errors(av[1], map, dimo);
     int i = 0;
     while (map[i])
     {

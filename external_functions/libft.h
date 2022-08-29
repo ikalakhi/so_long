@@ -18,8 +18,6 @@
 # include <sys/uio.h>
 # include <unistd.h>
 
-void    error(char *s);
-
 char	*get_next_line(int fd);
 char	*ft_strdup(char *s1);
 char	*ft_strjoin(char *s1, char *s2);
@@ -27,7 +25,6 @@ char	**ft_split(char *s, char c);
 char	*ft_substr(char *s, unsigned int start, size_t len);
 
 int		ft_strchr(char *s, int c);
-int     map_strchr(char *s, char c);
 
 size_t	ft_strlen(char *s);
 

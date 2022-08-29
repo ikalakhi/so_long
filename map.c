@@ -26,8 +26,33 @@ char    **read_map(char  *av, t_dimo dimo)
     return(map);
 }
 
-void    map_errors(char *av, char **map)
+void    map_errors(char *av, char **map, t_dimo dimo)
 {
     check_extension(av);
-    map_components(map, av);
+    lines(map, dimo);
+    rectangular_map(dimo);
+    map_components(map);
+    check_walls(map);
+}
+
+void    map_components(char **map)
+{
+    int     i;
+    t_comp  t_com;
+
+    t_com.collectible = 0;
+    t_com.player = 0;
+    t_com.exit = 0;
+    i = 0;
+    while(map[i] != NULL)
+    {
+        t_com = components_chrch(map[i], t_com);
+        i++;
+    }
+    if (t_com.collectible < 1)
+        error("ERROR: there's no enough collectible\n");
+    if (t_com.exit != 1)
+        error("ERROR: there's no EXIT, just like vim ;)\n");
+    if (t_com.player != 1)
+        error("ERROR: there's no player, how you wana play!!!\n");
 }
