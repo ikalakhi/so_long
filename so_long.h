@@ -12,12 +12,13 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include "external_functions/libft.h"
-# include <stdlib.h>
-# include <fcntl.h>
+# include "external_functions/libft.h"
 # include <sys/types.h>
 # include <sys/uio.h>
+# include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
+# include <mlx.h>
 # include <stdio.h>
 
 //struct that hold the map dimension.
@@ -27,12 +28,14 @@ typedef struct t_dimension
     int num_lines;
 } t_dimo;
 
-//struct that count the maps components
-typedef struct map_components
+//struct that holds the maps components
+typedef struct t_components
 {
-    int collectible;
-    int player;
-    int exit;
+    void    *init;
+    void    *win;
+    int     collectible;
+    int     player;
+    int     exit;
 } t_comp;
 
 void    error(char *s);

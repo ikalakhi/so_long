@@ -21,9 +21,11 @@ SRC = so_long.c so_long_utils.c map.c  map_lenth.c external_functions/split.c\
 OBJS = $(SRC:.c=.o)
 CFLAGS = -Wall -Wextra -Werror 
 #-fsanitize=address
+MLX_FALGS = -lmlx -framework OpenGL -framework AppKit
+
 all : $(NAME)
 $(NAME): $(OBJS)
-	cc $(CFLAGS) $(SRC) -o $(NAME)
+	cc $(CFLAGS) $(MLX_FALGS) $(SRC)  -o $(NAME)
 
 clean:
 	rm -f $(OBJS)
