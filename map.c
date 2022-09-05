@@ -67,11 +67,14 @@ void    map_components(char **map)
     }
 }
 
-void    creat_map(char **map, t_dimo dimo)
+void    creat_map(t_comp *mlx, t_dimo dimo)
 {
     int i;
     int j;
 
     i = 0;
-    
+    j = 0;
+    mlx_xpm_file_to_image(mlx->init, "./images/spongebob",
+        &dimo.line_lenth, &dimo.num_lines);
+    // \mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
 }

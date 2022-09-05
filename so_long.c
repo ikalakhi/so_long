@@ -15,18 +15,26 @@ int main (int ac, char **av)
 {
     char    **map;
     t_dimo  dimo;
-    t_comp  mlx;
+    t_comp  *mlx;
 
     if (ac != 2)
         error("Error\nUsage: './so_long mappath/mapname.ber'\n");
     map = NULL;
+    mlx =  malloc(sizeof(t_comp) * 1);
     dimo = map_dimension(av[1]);
     map = read_map(av[1], dimo);
     map_errors(av[1], map, dimo);
-    mlx.init = mlx_init();
-    mlx.win = mlx_new_window(mlx_init, dimo.line_lenth * 64,\
-            dimo.num_lines * 64, "so_long");
-    creat_map(map, dimo);
-    mlx_loop(mlx.init);
+    check_path(map);
+    // int i = 0;
+    // while(map[i])
+    // {
+    //     printf("%s", map[i]);
+    //     i++;
+    // }
+    // printf("---------------------------------");
+    // mlx->init = mlx_init();
+    // mlx->win = mlx_new_window(mlx->init,  1920, 1080, "so_long");
+   // creat_map(mlx, dimo);
+    // mlx_loop(mlx->init);
     return (0);
 }
