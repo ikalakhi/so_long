@@ -11,13 +11,14 @@ void    check_path(char **map)
     copy = copy_map(map);
     while(++a <100)
     {
-        if(dimo.y < dimo.ey && down(&dimo, map, copy));
-        else if(dimo.x < dimo.ex && right(&dimo, map, copy));
-        else if(dimo.y > dimo.ey && up(&dimo, map, copy));
-        else if(dimo.x > dimo.ex && left(&dimo, map, copy))
-            a = (a+ 1)-1;
+        if(/*dimo.y < dimo.ey || */down(&dimo, map, copy));
+        else if(/*dimo.x < dimo.ex && */right(&dimo, map, copy));
+        else if(/*dimo.y > dimo.ey && */up(&dimo, map, copy));
+        else if(/*dimo.x > dimo.ex && */left(&dimo, map, copy))
+            ;
+        // else
+        //     revese_path();
     }
-    // printf("%d %d\n",dimo.ex,dimo.ey);
     int i = 0;
     while(copy[i])
     {
@@ -33,7 +34,7 @@ int    down(t_dimo *dimo, char **map, char **copy)
 
     y = dimo->y + 1;
     x = dimo->x;
-    if (map[y][x] == '0')
+    if (map[y][x] != '1' && copy[y][x] != '*')
     {
         copy[y][x] = '*';
         dimo->y = y;
@@ -49,7 +50,7 @@ int    up(t_dimo *dimo, char **map, char **copy)
 
     y = dimo->y - 1;
     x = dimo->x;
-    if (map[y][x] == '0')
+    if (map[y][x] != '1' && copy[y][x] != '*')
     {
         copy[y][x] = '*';
         dimo->y = y;
@@ -65,7 +66,7 @@ int    left(t_dimo *dimo, char **map, char **copy)
 
     y = dimo->y;
     x = dimo->x - 1;
-    if (map[y][x] == '0')
+    if (map[y][x] != '1' && copy[y][x] != '*')
     {
         copy[y][x] = '*';
         dimo->x = x;
@@ -81,7 +82,7 @@ int    right(t_dimo *dimo, char **map, char **copy)
 
     y = dimo->y;
     x = dimo->x + 1;
-    if (map[y][x] == '0')
+    if (map[y][x] != '1' && copy[y][x] != '*')
     {
         copy[y][x] = '*';
         dimo->x = x;

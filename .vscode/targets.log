@@ -6,8 +6,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # PARTICULAR PURPOSE.
 
 # This program built for i386-apple-darwin11.3.0
+ 
 
-# Make data base, printed on Mon Sep  5 17:41:12 2022
+# Make data base, printed on Tue Sep  6 08:38:06 2022
 
 # Variables
 
@@ -42,7 +43,7 @@ MLX_FALGS = -lmlx -framework OpenGL -framework AppKit
 # environment
 VSCODE_CWD = /
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.n4p3dn3KXc/Render
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.KDCeXaZOHF/Render
 # environment
 PATH = /Users/ikalakhi/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
 # environment
@@ -52,7 +53,7 @@ ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.LkS6sQEoxG/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.DOVx4fLjcJ/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -146,7 +147,7 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 3746
+VSCODE_PID = 5754
 # variable set hash-table stats:
 # Load=68/1024=7%, Rehash=0, Collisions=3/96=3%
 
@@ -211,7 +212,7 @@ external_functions/substr.o:
 # Not a target:
 map.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-05 14:23:12
+#  Last modified 2022-09-05 18:46:46
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -291,7 +292,7 @@ errors_handling.o:
 
 so_long: so_long.o so_long_utils.o map.o map_lenth.o external_functions/split.o external_functions/get_next_line.o external_functions/get_next_line_utils.o external_functions/substr.o external_functions/strdup.o errors_handling.o map_chrch.o valide_path.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-09-05 14:23:13
+#  Last modified 2022-09-05 18:56:36
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -306,23 +307,23 @@ so_long.o:
 #  Last modified 2022-09-05 14:20:34
 #  File has been updated.
 #  Successfully updated.
- 
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 valide_path.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-05 14:15:06
+#  Last modified 2022-09-05 18:56:35
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
+ 
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 map_chrch.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-05 14:23:00
+#  Last modified 2022-09-05 18:46:46
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -350,6 +351,6 @@ external_functions/split.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Sep  5 17:41:12 2022
+# Finished Make data base on Tue Sep  6 08:38:07 2022
 
  
