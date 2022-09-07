@@ -47,9 +47,8 @@ char    **copy_map(char **map)
     return(copy);
 }
 
-t_dimo  player_location(char **map)
+t_dimo  *player_location(char **map, t_dimo  *dimo)
 {
-    t_dimo  dimo;
     int     x;
     int     y;
 
@@ -62,8 +61,8 @@ t_dimo  player_location(char **map)
         {
             if (map[y][x] == 'P')
             {
-                dimo.x = x;
-                dimo.y = y;
+                dimo->x = x;
+                dimo->y = y;
             }
             x++;
         }

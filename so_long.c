@@ -24,7 +24,7 @@ int main (int ac, char **av)
     dimo = map_dimension(av[1]);
     map = read_map(av[1], dimo);
     map_errors(av[1], map, dimo);
-    check_path(map);
+    check_path(map, &dimo);
     int i = 0;
     printf("\n------------------map---------------\n");
     while(map[i])

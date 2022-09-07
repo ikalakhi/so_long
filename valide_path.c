@@ -1,24 +1,30 @@
 #include "so_long.h"
 
-void    check_path(char **map)
+void    check_path(char **map, t_dimo  *dimo)
 {
-    t_dimo  dimo;
     char    **copy;
-    int a = -1;
+    // int a = -1;
 
-    dimo = player_location(map);
-    exite_location(&dimo, map);
+    dimo = player_location(map, dimo);
+    exite_location(dimo, map);
     copy = copy_map(map);
-    while(++a <100)
+    while(map[dimo->y][dimo->x] != map[dimo->ey][dimo->ex] )
     {
-        if(/*dimo.y < dimo.ey || */down(&dimo, map, copy));
-        else if(/*dimo.x < dimo.ex && */right(&dimo, map, copy));
-        else if(/*dimo.y > dimo.ey && */up(&dimo, map, copy));
-        else if(/*dimo.x > dimo.ex && */left(&dimo, map, copy))
-            ;
-        // else
-        //     revese_path();
+        if(dimo->y > (dimo->num_lines - 1) || dimo->x > (dimo->line_lenth - 1))
+            break ;
+        if(down(dimo, map, copy));
+        else if(right(dimo, map, copy));
+        else if(up(dimo, map, copy));
+        else if(left(dimo, map, copy));
+        else
+        {
+            revese_path(dimo, map, copy);
+            if(dimo->y == 0 || dimo->x == 0)
+                error("ERROR: invalid path\n");
+        }
     }
+    if(copy[dimo->y][dimo->x] == map[dimo->ey][dimo->ex])
+        error("ERROR: invalid path\n");
     int i = 0;
     while(copy[i])
     {
@@ -39,7 +45,7 @@ int    down(t_dimo *dimo, char **map, char **copy)
         copy[y][x] = '*';
         dimo->y = y;
         return (1);
-    }
+    } 
     return (0);
 }
 
