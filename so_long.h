@@ -28,6 +28,8 @@ typedef struct t_dimension
     int num_lines;
     int ex ;
     int ey;
+    int cx ;
+    int cy;
     int x;
     int y;
 } t_dimo;
@@ -51,9 +53,12 @@ void    lines(char  **map, t_dimo dimo);
 void    creat_map(t_comp *mlx, t_dimo dimo);
 void    check_path(char **map, t_dimo  *dimo);
 void    *ft_calloc(size_t count, size_t size);
+void    playerspath(char **map, t_dimo  *dimo);
 void    exite_location(t_dimo *dimo, char **map);
 void    map_errors(char *av, char **map, t_dimo dimo);
-void    revese_path(t_dimo *dimo, char **map, char **copy);
+void    revese_player_path(t_dimo *dimo, char **map, char **copy);
+void    collectibles_path(char **map, t_dimo  *dimo, t_comp comp);
+void    revese_collectibles_path(t_dimo *dimo, char **map, char **copy);
 
 char    **copy_map(char **map);
 char    **help_split(char ***map);
@@ -67,6 +72,10 @@ int     up(t_dimo *dimo, char **map, char **copy);
 int     down(t_dimo *dimo, char **map, char **copy);
 int     left(t_dimo *dimo, char **map, char **copy);
 int     right(t_dimo *dimo, char **map, char **copy);
+int     up_c(t_dimo *dimo, char **map, char **copy);
+int     down_c(t_dimo *dimo, char **map, char **copy);
+int     left_c(t_dimo *dimo, char **map, char **copy);
+int     right_c(t_dimo *dimo, char **map, char **copy);
 
 t_dimo  map_dimension(char  *av);
 t_comp  components_chrch(char *line, t_comp t_com);

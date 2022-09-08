@@ -2,13 +2,18 @@
 
 void    check_path(char **map, t_dimo  *dimo)
 {
+    playerspath(map, dimo);
+    collectibles_path(map, dimo);
+}
+
+void    playerspath(char **map, t_dimo  *dimo)
+{
     char    **copy;
     // int a = -1;
 
     dimo = player_location(map, dimo);
     exite_location(dimo, map);
     copy = copy_map(map);
-    // copy[dimo->y][dimo->x] = '*';
     while(map[dimo->y][dimo->x] != map[dimo->ey][dimo->ex] )
     {
         if(dimo->y > dimo->num_lines || dimo->x > dimo->line_lenth)
@@ -19,7 +24,7 @@ void    check_path(char **map, t_dimo  *dimo)
         else if(left(dimo, map, copy));
         else
         {
-            revese_path(dimo, map, copy);
+            revese_player_path(dimo, map, copy);
             if(dimo->y == 0 || dimo->x == 0)
                 error("ERROR: invalid path\n");
         }
@@ -34,66 +39,29 @@ void    check_path(char **map, t_dimo  *dimo)
     }
 }
 
-int    down(t_dimo *dimo, char **map, char **copy)
+void    collectibles_path(char **map, t_dimo  *dimo, t_comp comp)
 {
-    int y;
-    int x;
-
-    y = dimo->y + 1;
-    x = dimo->x;
-    if (map[y][x] != '1' && copy[y][x] != '*' && map[dimo->y][dimo->x] != '1')
+    copy = copy_map(map);
+    while(comp.collectible > 0)
     {
-        copy[y][x] = '*';
-        dimo->y = y;
-        return (1);
-    } 
-    return (0);
-}
-
-int    up(t_dimo *dimo, char **map, char **copy)
-{
-    int y;
-    int x;
-
-    y = dimo->y - 1;
-    x = dimo->x;
-    if (map[y][x] != '1' && copy[y][x] != '*' && map[dimo->y][dimo->x] != '1')
-    {
-        copy[y][x] = '*';
-        dimo->y = y;
-        return (1);
+        collectibles_location(char **map, t_dimo  *dimo);
+        while(map[dimo->y][dimo->x] != map[dimo->cy][dimo->cx] )
+        {
+            if(dimo->y > dimo->num_lines || dimo->x > dimo->line_lenth)
+                break ;
+            if(down_c(dimo, map, copy));
+            else if(right_c(dimo, map, copy));
+            else if(up_c(dimo, map, copy));
+            else if(left_c(dimo, map, copy));
+            else
+            {
+                revese_collectibles_path(dimo, map, copy);
+                if(dimo->cy == 0 || dimo->cx == 0)
+                    error("ERROR: invalid path\n");
+            }
+        }
+         if(copy[dimo->cy][dimo->cx] == map[dimo->y][dimo->x])
+        error("ERROR: invalid path\n");
+        comp.collectible --;
     }
-    return (0);
-}
-
-int    left(t_dimo *dimo, char **map, char **copy)
-{
-    int y;
-    int x;
-
-    y = dimo->y;
-    x = dimo->x - 1;
-    if (map[y][x] != '1' && copy[y][x] != '*' && map[dimo->y][dimo->x] != '1')
-    {
-        copy[y][x] = '*';
-        dimo->x = x;
-        return (1);
-    }
-    return (0);
-}
-
-int    right(t_dimo *dimo, char **map, char **copy)
-{
-    int y;
-    int x;
-
-    y = dimo->y;
-    x = dimo->x + 1;
-    if (map[y][x] != '1' && copy[y][x] != '*' && map[dimo->y][dimo->x] != '1')
-    {
-        copy[y][x] = '*';
-        dimo->x = x;
-        return (1);
-    }
-    return (0);
 }

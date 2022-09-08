@@ -1,21 +1,5 @@
 #include "so_long.h"
 
-int map_strchr(char *s, char c)
-{
-    int     i;
-
-    i = 0;
-    while (s[i])
-    {
-        if (s[i] == c)
-            return (1);
-        i++ ;
-    }
-    if (s[i] == c)
-        return (1);
-    return (0);
-}
-
 t_comp    components_chrch(char   *line, t_comp t_com)
 {
     int i ;
@@ -99,4 +83,28 @@ void    exite_location(t_dimo *dimo, char **map)
         }
         y++;       
     }
+}
+
+t_dimo  *collectibles_location(char **map, t_dimo  *dimo)
+{
+    int     x;
+    int     y;
+
+    x = 0;
+    y = 0;
+    while(map[y])
+    {
+        x = 0;
+        while(map[y][x])
+        {
+            if (map[y][x] == 'P')
+            {
+                dimo->cx = x;
+                dimo->cy = y;
+            }
+            x++;
+        }
+        y++;       
+    }
+    return(dimo);
 }
