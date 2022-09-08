@@ -49,7 +49,7 @@ void    map_components(char **map)
         t_com = components_chrch(map[i], t_com);
         i++;
     }
-    if (t_com.collectible < 1)
+    if (t_com.collectible == 0)
         error("ERROR: there's no enough collectible\n");
     if (t_com.exit != 1)
     {

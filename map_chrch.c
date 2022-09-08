@@ -18,12 +18,19 @@ int map_strchr(char *s, char c)
 
 t_comp    components_chrch(char   *line, t_comp t_com)
 {
-    if (map_strchr(line, 'C') == 1)
-        t_com.collectible = t_com.collectible + 1;
-    if (map_strchr(line, 'E') == 1)
-        t_com.exit =  t_com.exit + 1;
-    if (map_strchr(line, 'P') == 1)
-        t_com.player = t_com.player + 1;
+    int i ;
+
+    i = 0;
+    while (line[i])
+    {
+        if (line[i] == 'C')
+            t_com.collectible = t_com.collectible + 1;
+        else if (line[i] == 'E')
+            t_com.exit =  t_com.exit + 1;
+        else if (line[i] == 'P')
+            t_com.player = t_com.player + 1;
+        i++;
+    }
     return(t_com);
 }
 

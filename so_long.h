@@ -26,13 +26,13 @@ typedef struct t_dimension
 {
     int line_lenth;
     int num_lines;
+    int ex ;
+    int ey;
     int x;
     int y;
-    int ex;
-    int ey;
 } t_dimo;
 
-//struct that holds the map's components
+// struct that holds the map's components.
 typedef struct t_components
 {
     int     collectible;
@@ -56,8 +56,8 @@ void    map_errors(char *av, char **map, t_dimo dimo);
 void    revese_path(t_dimo *dimo, char **map, char **copy);
 
 char    **copy_map(char **map);
-char    *join(char *s1, char *s2);
 char    **help_split(char ***map);
+char    *join(char *s1, char *s2);
 char    **read_map(char  *av, t_dimo dimo);
 
 int     line_lenth(char *av);

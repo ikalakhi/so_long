@@ -8,9 +8,10 @@ void    check_path(char **map, t_dimo  *dimo)
     dimo = player_location(map, dimo);
     exite_location(dimo, map);
     copy = copy_map(map);
+    // copy[dimo->y][dimo->x] = '*';
     while(map[dimo->y][dimo->x] != map[dimo->ey][dimo->ex] )
     {
-        if(dimo->y > (dimo->num_lines - 1) || dimo->x > (dimo->line_lenth - 1))
+        if(dimo->y > dimo->num_lines || dimo->x > dimo->line_lenth)
             break ;
         if(down(dimo, map, copy));
         else if(right(dimo, map, copy));
@@ -40,7 +41,7 @@ int    down(t_dimo *dimo, char **map, char **copy)
 
     y = dimo->y + 1;
     x = dimo->x;
-    if (map[y][x] != '1' && copy[y][x] != '*')
+    if (map[y][x] != '1' && copy[y][x] != '*' && map[dimo->y][dimo->x] != '1')
     {
         copy[y][x] = '*';
         dimo->y = y;
@@ -56,7 +57,7 @@ int    up(t_dimo *dimo, char **map, char **copy)
 
     y = dimo->y - 1;
     x = dimo->x;
-    if (map[y][x] != '1' && copy[y][x] != '*')
+    if (map[y][x] != '1' && copy[y][x] != '*' && map[dimo->y][dimo->x] != '1')
     {
         copy[y][x] = '*';
         dimo->y = y;
@@ -72,7 +73,7 @@ int    left(t_dimo *dimo, char **map, char **copy)
 
     y = dimo->y;
     x = dimo->x - 1;
-    if (map[y][x] != '1' && copy[y][x] != '*')
+    if (map[y][x] != '1' && copy[y][x] != '*' && map[dimo->y][dimo->x] != '1')
     {
         copy[y][x] = '*';
         dimo->x = x;
@@ -88,7 +89,7 @@ int    right(t_dimo *dimo, char **map, char **copy)
 
     y = dimo->y;
     x = dimo->x + 1;
-    if (map[y][x] != '1' && copy[y][x] != '*')
+    if (map[y][x] != '1' && copy[y][x] != '*' && map[dimo->y][dimo->x] != '1')
     {
         copy[y][x] = '*';
         dimo->x = x;
