@@ -15,7 +15,7 @@ NAME = so_long
 SRC = so_long.c so_long_utils.c map.c  map_lenth.c external_functions/split.c\
 		external_functions/get_next_line.c external_functions/get_next_line_utils.c\
 		external_functions/substr.c external_functions/strdup.c errors_handling.c\
-		map_chrch.c valide_path.c player_path.c collectibles_location.c
+		map_chrch.c valide_path.c player_path.c collectibles_path.c
 
 OBJS = $(SRC:.c=.o)
 CFLAGS = -Wall -Wextra -Werror 

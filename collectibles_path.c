@@ -2,11 +2,11 @@
 
 void    revese_collectibles_path(t_dimo *dimo, char **map, char **copy)
 {
-    if(down_c(dimo, map, copy) == 0)
+    if(down_c(dimo, map, copy) == 0 && dimo->cy > 1)
         dimo->cy --;
-    else if(right_c(dimo, map, copy) == 0)
+    else if(right_c(dimo, map, copy) == 0 && dimo->cx > 1)
         dimo->cx --;
-    else if(up_c(dimo, map, copy) == 0)
+    else if(up_c(dimo, map, copy) == 0 )
         dimo->cy ++;
     else if(left_c(dimo, map, copy) == 0)
         dimo->cx ++;
@@ -14,11 +14,11 @@ void    revese_collectibles_path(t_dimo *dimo, char **map, char **copy)
 
 int    down_c(t_dimo *dimo, char **map, char **copy)
 {
-    int y;
-    int x;
+    int cy;
+    int cx;
 
-    y = dimo->cy + 1;
-    x = dimo->cx;
+    cy = dimo->cy + 1;
+    cx = dimo->cx;
     if (map[cy][cx] != '1' && copy[cy][cx] != '*' && map[dimo->cy][dimo->cx] != '1')
     {
         copy[cy][cx] = '*';
@@ -30,11 +30,11 @@ int    down_c(t_dimo *dimo, char **map, char **copy)
 
 int    up_c(t_dimo *dimo, char **map, char **copy)
 {
-    int y;
-    int x;
+    int cy;
+    int cx;
 
-    y = dimo->cy - 1;
-    x = dimo->cx;
+    cy = dimo->cy - 1;
+    cx = dimo->cx;
     if (map[cy][cx] != '1' && copy[cy][cx] != '*' && map[dimo->cy][dimo->cx] != '1')
     {
         copy[cy][cx] = '*';
@@ -46,11 +46,11 @@ int    up_c(t_dimo *dimo, char **map, char **copy)
 
 int    left_c(t_dimo *dimo, char **map, char **copy)
 {
-    int y;
-    int x;
+    int cy;
+    int cx;
 
-    y = dimo->cy;
-    x = dimo->cx - 1;
+    cy = dimo->cy;
+    cx = dimo->cx - 1;
     if (map[cy][cx] != '1' && copy[cy][cx] != '*' && map[dimo->cy][dimo->cx] != '1')
     {
         copy[cy][cx] = '*';
@@ -62,11 +62,11 @@ int    left_c(t_dimo *dimo, char **map, char **copy)
 
 int    right_c(t_dimo *dimo, char **map, char **copy)
 {
-    int y;
-    int x;
+    int cy;
+    int cx;
 
-    y = dimo->cy;
-    x = dimo->cx + 1;
+    cy = dimo->cy;
+    cx = dimo->cx + 1;
     if (map[cy][cx] != '1' && copy[cy][cx] != '*' && map[dimo->cy][dimo->cx] != '1')
     {
         copy[cy][cx] = '*';

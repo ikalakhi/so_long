@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-t_comp    components_chrch(char   *line, t_comp t_com)
+t_comp    *components_chrch(char   *line, t_comp *comp)
 {
     int i ;
 
@@ -8,14 +8,14 @@ t_comp    components_chrch(char   *line, t_comp t_com)
     while (line[i])
     {
         if (line[i] == 'C')
-            t_com.collectible = t_com.collectible + 1;
+            comp->collectible = comp->collectible + 1;
         else if (line[i] == 'E')
-            t_com.exit =  t_com.exit + 1;
+            comp->exit =  comp->exit + 1;
         else if (line[i] == 'P')
-            t_com.player = t_com.player + 1;
+            comp->player = comp->player + 1;
         i++;
     }
-    return(t_com);
+    return(comp);
 }
 
 char    **copy_map(char **map)
@@ -62,7 +62,7 @@ t_dimo  *player_location(char **map, t_dimo  *dimo)
     return(dimo);
 }
 
-void    exite_location(t_dimo *dimo, char **map)
+t_dimo  *exite_location(t_dimo *dimo, char **map)
 {
     int     x;
     int     y;
@@ -83,6 +83,7 @@ void    exite_location(t_dimo *dimo, char **map)
         }
         y++;       
     }
+    return(dimo);
 }
 
 t_dimo  *collectibles_location(char **map, t_dimo  *dimo)
@@ -97,10 +98,11 @@ t_dimo  *collectibles_location(char **map, t_dimo  *dimo)
         x = 0;
         while(map[y][x])
         {
-            if (map[y][x] == 'P')
+            if (map[y][x] == 'C')
             {
                 dimo->cx = x;
                 dimo->cy = y;
+                return(dimo);
             }
             x++;
         }

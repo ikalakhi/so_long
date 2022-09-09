@@ -47,17 +47,14 @@ typedef struct t_components
 void    error(char *s);
 void    check_walls(char **map);
 void    check_extension(char *av);
-void    map_components(char **map);
 void    rectangular_map(t_dimo dimo);
 void    lines(char  **map, t_dimo dimo);
 void    creat_map(t_comp *mlx, t_dimo dimo);
-void    check_path(char **map, t_dimo  *dimo);
 void    *ft_calloc(size_t count, size_t size);
 void    playerspath(char **map, t_dimo  *dimo);
-void    exite_location(t_dimo *dimo, char **map);
-void    map_errors(char *av, char **map, t_dimo dimo);
+void    check_path(char **map, t_dimo  *dimo, t_comp  *comp);
 void    revese_player_path(t_dimo *dimo, char **map, char **copy);
-void    collectibles_path(char **map, t_dimo  *dimo, t_comp comp);
+void    collectibles_path(char **map, t_dimo  *dimo, t_comp  *comp);
 void    revese_collectibles_path(t_dimo *dimo, char **map, char **copy);
 
 char    **copy_map(char **map);
@@ -78,7 +75,11 @@ int     left_c(t_dimo *dimo, char **map, char **copy);
 int     right_c(t_dimo *dimo, char **map, char **copy);
 
 t_dimo  map_dimension(char  *av);
-t_comp  components_chrch(char *line, t_comp t_com);
+t_comp  *map_components(char **map, t_comp *comp);
+t_dimo  *exite_location(t_dimo *dimo, char **map);
+t_comp  *components_chrch(char *line, t_comp *comp);
 t_dimo  *player_location(char **map, t_dimo  *dimo);
+t_dimo  *collectibles_location(char **map, t_dimo *dimo);
+t_comp  *map_errors(char *av, char **map, t_dimo dimo, t_comp *comp);
 
 # endif

@@ -23,8 +23,8 @@ int main (int ac, char **av)
     mlx =  malloc(sizeof(t_comp) * 1);
     dimo = map_dimension(av[1]);
     map = read_map(av[1], dimo);
-    map_errors(av[1], map, dimo);
-    check_path(map, &dimo, );
+    mlx = map_errors(av[1], map, dimo, mlx);
+    check_path(map, &dimo, mlx);
     int i = 0;
     printf("\n------------------map---------------\n");
     while(map[i])

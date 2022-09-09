@@ -1,21 +1,22 @@
 #include "so_long.h"
 
-void    check_path(char **map, t_dimo  *dimo)
+void    check_path(char **map, t_dimo  *dimo, t_comp  *comp)
 {
     playerspath(map, dimo);
-    collectibles_path(map, dimo);
+    collectibles_path(map, dimo, comp);
 }
 
 void    playerspath(char **map, t_dimo  *dimo)
 {
     char    **copy;
-    // int a = -1;
 
     dimo = player_location(map, dimo);
-    exite_location(dimo, map);
+    dimo = exite_location(dimo, map);
+    printf("\ney =>%d ex =>%d\n", dimo->ey, dimo->ex);
     copy = copy_map(map);
     while(map[dimo->y][dimo->x] != map[dimo->ey][dimo->ex] )
     {
+        printf("\ny =>%d x =>%d\n", dimo->y, dimo->x);
         if(dimo->y > dimo->num_lines || dimo->x > dimo->line_lenth)
             break ;
         if(down(dimo, map, copy));
@@ -39,15 +40,21 @@ void    playerspath(char **map, t_dimo  *dimo)
     }
 }
 
-void    collectibles_path(char **map, t_dimo  *dimo, t_comp comp)
+void    collectibles_path(char **map, t_dimo  *dimo, t_comp  *comp)
 {
+    char    **copy;
+
     copy = copy_map(map);
-    while(comp.collectible > 0)
+    dimo = player_location(map, dimo);
+    while(comp->collectible > 0)
     {
-        collectibles_location(char **map, t_dimo  *dimo);
+        collectibles_location(copy, dimo);
+        copy[dimo->cy][dimo->cx] = '*';
+        printf("\ny =>%d x =>%d\n", dimo->y, dimo->x);
+        printf("\ncy =>%d cx =>%d\n", dimo->cy, dimo->cx);
         while(map[dimo->y][dimo->x] != map[dimo->cy][dimo->cx] )
         {
-            if(dimo->y > dimo->num_lines || dimo->x > dimo->line_lenth)
+            if(dimo->cy > dimo->num_lines || dimo->cx > dimo->line_lenth)
                 break ;
             if(down_c(dimo, map, copy));
             else if(right_c(dimo, map, copy));
@@ -60,8 +67,15 @@ void    collectibles_path(char **map, t_dimo  *dimo, t_comp comp)
                     error("ERROR: invalid path\n");
             }
         }
-         if(copy[dimo->cy][dimo->cx] == map[dimo->y][dimo->x])
-        error("ERROR: invalid path\n");
-        comp.collectible --;
+        if(copy[dimo->cy][dimo->cx] == map[dimo->y][dimo->x])
+            error("ERROR: invalid path\n");
+        comp->collectible --;
+    }
+    int i = 0;
+    printf("\n-----------colect-------------\n");
+    while(copy[i])
+    {
+        printf("%s", copy[i]);
+        i++;
     }
 }
