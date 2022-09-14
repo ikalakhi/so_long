@@ -26,9 +26,9 @@ typedef struct t_dimension
 {
     int line_lenth;
     int num_lines;
-    int ex ;
+    int ex;
     int ey;
-    int cx ;
+    int cx;
     int cy;
     int x;
     int y;
@@ -40,18 +40,26 @@ typedef struct t_components
     int     collectible;
     int     player;
     int     exit;
-    void    *init;
     void    *win;
+    void    *init;
+    void    *image;
+    char    *p_path;
+    char    *c_path;
+    char    *e_path;
+    char    *w_path;
+    char    *b_path;
 } t_comp;
 
 void    error(char *s);
+void    images_path(void);
 void    check_walls(char **map);
 void    check_extension(char *av);
 void    rectangular_map(t_dimo dimo);
 void    lines(char  **map, t_dimo dimo);
-void    creat_map(t_comp *mlx, t_dimo dimo);
 void    *ft_calloc(size_t count, size_t size);
 void    playerspath(char **map, t_dimo  *dimo);
+void    creat_map(char **map, t_comp *mlx, t_dimo dimo);
+void    fill_window(char **map,t_comp *path, t_dimo dimo);
 void    check_path(char **map, t_dimo  *dimo, t_comp  *comp);
 void    revese_player_path(t_dimo *dimo, char **map, char **copy);
 void    collectibles_path(char **map, t_dimo  *dimo, t_comp  *comp);

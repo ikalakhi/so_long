@@ -2,17 +2,22 @@
 
 void    revese_player_path(t_dimo *dimo, char **map, char **copy)
 {
-    if(down(dimo, map, copy) == 0)
+    int x;
+    int y;
+
+    x = dimo->x;
+    y = dimo->y;
+    if(down(dimo, map, copy) == 0 && map[y - 1][x] != '1')
         dimo->y --;
-    else if(right(dimo, map, copy) == 0)
+    else if(right(dimo, map, copy) == 0 && map[y][x - 1]!= '1')
         dimo->x --;
-    else if(up(dimo, map, copy) == 0)
+    else if(up(dimo, map, copy) == 0 && map[y + 1][x]!= '1')
         dimo->y ++;
-    else if(left(dimo, map, copy) == 0)
+    else if(left(dimo, map, copy) == 0 && map[y][x + 1] != '1')
         dimo->x ++;
 }
 
-int    down(t_dimo *dimo, char **map, char **copy)
+int down(t_dimo *dimo, char **map, char **copy)
 {
     int y;
     int x;
@@ -28,7 +33,7 @@ int    down(t_dimo *dimo, char **map, char **copy)
     return (0);
 }
 
-int    up(t_dimo *dimo, char **map, char **copy)
+int up(t_dimo *dimo, char **map, char **copy)
 {
     int y;
     int x;
@@ -44,7 +49,7 @@ int    up(t_dimo *dimo, char **map, char **copy)
     return (0);
 }
 
-int    left(t_dimo *dimo, char **map, char **copy)
+int left(t_dimo *dimo, char **map, char **copy)
 {
     int y;
     int x;
@@ -60,7 +65,7 @@ int    left(t_dimo *dimo, char **map, char **copy)
     return (0);
 }
 
-int    right(t_dimo *dimo, char **map, char **copy)
+int right(t_dimo *dimo, char **map, char **copy)
 {
     int y;
     int x;

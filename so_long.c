@@ -25,16 +25,7 @@ int main (int ac, char **av)
     map = read_map(av[1], dimo);
     mlx = map_errors(av[1], map, dimo, mlx);
     check_path(map, &dimo, mlx);
-    int i = 0;
-    printf("\n------------------map---------------\n");
-    while(map[i])
-    {
-        printf("%s", map[i]);
-        i++;
-    }
-    // mlx->init = mlx_init();
-    // mlx->win = mlx_new_window(mlx->init,  1920, 1080, "so_long");
-   // creat_map(mlx, dimo);
-    // mlx_loop(mlx->init);
+    creat_map(map, mlx, dimo);
+    mlx_loop(mlx->init);
     return (0);
 }
