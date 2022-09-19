@@ -1,81 +1,49 @@
 #include "so_long.h"
 
-void    check_path(char **map, t_dimo  *dimo, t_comp  *comp)
+int	visitable(t_dimo *dimo, int x, int y, char **map)
 {
-    playerspath(map, dimo);
-    collectibles_path(map, dimo, comp);
+	if (y <= 0 || x <= 0)
+		return (-1);
+	if (x >= dimo->line_lenth || y >= dimo->num_lines)
+		return (-1);
+	if (map[y][x] == '1')
+		return (-1);
+	if (dimo->tab[y][x] == 1)
+		return (-1);
+	return (1);
 }
 
-void    playerspath(char **map, t_dimo  *dimo)
+void	visit(t_dimo *dimo, int x, int y, char **map)
 {
-    char    **copy;
-
-    dimo = player_location(map, dimo);
-    dimo = exite_location(dimo, map);
-    // printf("\ney =>%d ex =>%d\n", dimo->ey, dimo->ex);
-    copy = copy_map(map);
-    while(map[dimo->y][dimo->x] != map[dimo->ey][dimo->ex] )
-    {
-        // printf("\ny =>%d x =>%d\n", dimo->y, dimo->x);
-        if(dimo->y > dimo->num_lines || dimo->x > dimo->line_lenth)
-            break ;
-        if(down(dimo, map, copy));
-        else if(right(dimo, map, copy));
-        else if(up(dimo, map, copy));
-        else if(left(dimo, map, copy));
-        else
-        {
-            revese_player_path(dimo, map, copy);
-            if(dimo->y == 0 || dimo->x == 0)
-                error("ERROR: invalid player path\n");
-        }
-    }
-    if(copy[dimo->y][dimo->x] == map[dimo->ey][dimo->ex])
-        error("ERROR: invalid path\n");
-    // int i = 0;
-    // while(copy[i])
-    // {
-    //     printf("%s", copy[i]);
-    //     i++;
-    // }
+	if (x == dimo->ex && y == dimo->ey)
+	{
+		dimo->inv_path = 1;
+		return ;
+	}
+	dimo->tab[y][x] = 1;
+	if (!dimo->inv_path && visitable(dimo, x + 1, y, map) != -1)
+		visit(dimo, x + 1, y, map);
+	if (!dimo->inv_path && visitable(dimo, x, y -1, map) != -1)
+		visit(dimo, x, y -1, map);
+	if (!dimo->inv_path && visitable(dimo, x - 1, y, map) != -1)
+		visit(dimo, x - 1, y, map);
+	if (!dimo->inv_path && visitable(dimo, x, y + 1, map) != -1)
+		visit(dimo, x, y + 1, map);
+	dimo->tab[y][x] = 0;
 }
 
-void    collectibles_path(char **map, t_dimo  *dimo, t_comp  *comp)
+void	check_path(char **map, t_dimo *dimo)
 {
-    char    **copy;
+	int i;
 
-    copy = copy_map(map);
-    dimo = player_location(map, dimo);
-    while(comp->collectible > 0)
-    {
-        collectibles_location(copy, dimo);
-        // printf("\ny =>%d x =>%d\n", dimo->y, dimo->x);
-        // printf("\ncy =>%d cx =>%d\n", dimo->cy, dimo->cx);
-        while(map[dimo->y][dimo->x] != map[dimo->cy][dimo->cx] )
-        {
-            if(dimo->cy > dimo->num_lines || dimo->cx > dimo->line_lenth)
-                break ;
-            if(down_c(dimo, map, copy));
-            else if(right_c(dimo, map, copy));
-            else if(up_c(dimo, map, copy));
-            else if(left_c(dimo, map, copy));
-            else
-            {
-                revese_collectibles_path(dimo, map, copy);
-                if(dimo->cy == 0 || dimo->cx == 0)
-                    error("ERROR: invalid collectible path\n");
-            }
-        }
-        copy[dimo->cy][dimo->cx] = '*';
-        if(copy[dimo->cy][dimo->cx] == map[dimo->y][dimo->x])
-            error("ERROR: invalid path\n");
-        comp->collectible --;
-    }
-    // int i = 0;
-    // printf("\n-----------colect-------------\n");
-    // while(copy[i])
-    // {
-    //     printf("%s", copy[i]);
-    //     i++;
-    // }
+	i = 0;
+	dimo->inv_path = 0;
+	dimo->tab = (int **)malloc(sizeof(int *) * dimo->num_lines);
+	while (i < dimo->num_lines)
+		dimo->tab[i++] = (int *)malloc(sizeof(int) * dimo->line_lenth);
+    player_location(map, dimo);
+    exite_location(dimo, map);
+	visit(dimo,dimo->x, dimo->y, map);
+	if ( dimo->inv_path == -1)
+		error("\033[1;31merror:\033[0m\ninvalid path!\n");
 }

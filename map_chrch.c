@@ -38,7 +38,7 @@ char    **copy_map(char **map)
     return(copy);
 }
 
-t_dimo  *player_location(char **map, t_dimo  *dimo)
+void   player_location(char **map, t_dimo  *dimo)
 {
     int     x;
     int     y;
@@ -59,10 +59,9 @@ t_dimo  *player_location(char **map, t_dimo  *dimo)
         }
         y++;       
     }
-    return(dimo);
 }
 
-t_dimo  *exite_location(t_dimo *dimo, char **map)
+void    exite_location(t_dimo *dimo, char **map)
 {
     int     x;
     int     y;
@@ -83,7 +82,6 @@ t_dimo  *exite_location(t_dimo *dimo, char **map)
         }
         y++;       
     }
-    return(dimo);
 }
 
 t_dimo  *collectibles_location(char **map, t_dimo  *dimo)

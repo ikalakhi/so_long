@@ -1,25 +1,25 @@
 #include "so_long.h"
 
-void    revese_collectibles_path(t_dimo *dimo, char **map, char **copy)
+void    revese_collectibles_path(t_dimo *dimo, char **copy)
 {
-    if(down_c(dimo, map, copy) == 0 && dimo->cy > 1)
+    if(down_c(dimo, copy) == 0)
         dimo->cy --;
-    else if(right_c(dimo, map, copy) == 0 && dimo->cx > 1)
+    else if(right_c(dimo, copy) == 0)
         dimo->cx --;
-    else if(up_c(dimo, map, copy) == 0 )
+    else if(up_c(dimo, copy) == 0 )
         dimo->cy ++;
-    else if(left_c(dimo, map, copy) == 0)
+    else if(left_c(dimo, copy) == 0)
         dimo->cx ++;
 }
 
-int    down_c(t_dimo *dimo, char **map, char **copy)
+int    down_c(t_dimo *dimo, char **copy)
 {
     int cy;
     int cx;
 
     cy = dimo->cy + 1;
     cx = dimo->cx;
-    if (map[cy][cx] != '1' && copy[cy][cx] != '*' && map[dimo->cy][dimo->cx] != '1')
+    if (copy[cy][cx] != '1' && copy[cy][cx] != '*' && copy[dimo->cy][dimo->cx] != '1')
     {
         copy[cy][cx] = '*';
         dimo->cy = cy;
@@ -28,14 +28,14 @@ int    down_c(t_dimo *dimo, char **map, char **copy)
     return (0);
 }
 
-int    up_c(t_dimo *dimo, char **map, char **copy)
+int    up_c(t_dimo *dimo, char **copy)
 {
     int cy;
     int cx;
 
     cy = dimo->cy - 1;
     cx = dimo->cx;
-    if (map[cy][cx] != '1' && copy[cy][cx] != '*' && map[dimo->cy][dimo->cx] != '1')
+    if (copy[cy][cx] != '1' && copy[cy][cx] != '*' && copy[dimo->cy][dimo->cx] != '1')
     {
         copy[cy][cx] = '*';
         dimo->cy = cy;
@@ -44,14 +44,14 @@ int    up_c(t_dimo *dimo, char **map, char **copy)
     return (0);
 }
 
-int    left_c(t_dimo *dimo, char **map, char **copy)
+int    left_c(t_dimo *dimo, char **copy)
 {
     int cy;
     int cx;
 
     cy = dimo->cy;
     cx = dimo->cx - 1;
-    if (map[cy][cx] != '1' && copy[cy][cx] != '*' && map[dimo->cy][dimo->cx] != '1')
+    if (copy[cy][cx] != '1' && copy[cy][cx] != '*' && copy[dimo->cy][dimo->cx] != '1')
     {
         copy[cy][cx] = '*';
         dimo->cx = cx;
@@ -60,14 +60,14 @@ int    left_c(t_dimo *dimo, char **map, char **copy)
     return (0);
 }
 
-int    right_c(t_dimo *dimo, char **map, char **copy)
+int    right_c(t_dimo *dimo, char **copy)
 {
     int cy;
     int cx;
 
     cy = dimo->cy;
     cx = dimo->cx + 1;
-    if (map[cy][cx] != '1' && copy[cy][cx] != '*' && map[dimo->cy][dimo->cx] != '1')
+    if (copy[cy][cx] != '1' && copy[cy][cx] != '*' && copy[dimo->cy][dimo->cx] != '1')
     {
         copy[cy][cx] = '*';
         dimo->cx = cx;
