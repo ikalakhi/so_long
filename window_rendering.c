@@ -1,10 +1,10 @@
 #include "so_long.h"
 
-void    creat_map(char **map, t_comp *mlx, t_dimo dimo)
+void    creat_map(char **map, t_comp *mlx, t_dimo *dimo)
 {
     mlx->init = mlx_init();
     images_path(mlx);
-    mlx->win = mlx_new_window(mlx->init,  (dimo.line_lenth - 1) * 64, dimo.num_lines * 64, "so_long");
+    mlx->win = mlx_new_window(mlx->init,  (dimo->line_lenth - 1) * 64, dimo->num_lines * 64, "so_long");
     fill_window(map, mlx);
 }
 

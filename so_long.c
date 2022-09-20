@@ -18,8 +18,10 @@ int escape(t_comp *mlx)
 	exit(EXIT_SUCCESS);
 }
 
-void    creat_game(t_comp *mlx, char **map)
+void    creat_game(t_comp *mlx, t_dimo *dimo, char **map)
 {
+    dimo = player_location(map, dimo);
+    printf("y == %d, x == %d\n", mlx->dimo->y, mlx->dimo->x);
     mlx->map = copy_map(map);
     mlx_hook(mlx->win, 17, 0, escape, mlx);
     mlx_key_hook(mlx->win, key_hook, mlx);
@@ -28,25 +30,20 @@ void    creat_game(t_comp *mlx, char **map)
 int main (int ac, char **av)
 {
     char    **map;
-    t_dimo  dimo;
+    t_dimo  *dimo;
     t_comp  *mlx;
 
     if (ac != 2)
         error("Error\nUsage: './so_long mappath/mapname.ber'\n");
     map = NULL;
+    dimo = malloc(sizeof(t_dimo) * 1);
     mlx =  malloc(sizeof(t_comp) * 1);
-    dimo = map_dimension(av[1]);
+    dimo = map_dimension(av[1], dimo);
     map = read_map(av[1], dimo);
     mlx = map_errors(av[1], map, dimo, mlx);
-    check_path(map, &dimo);
+    check_path(map, dimo);
     creat_map(map, mlx, dimo);
-    creat_game(mlx, map);
+    creat_game(mlx, dimo, map);
     mlx_loop(mlx->init);
-    // int i = 0;
-    // while(map[i])
-    // {
-    //     printf("%s", map[i]);
-    //     i++;
-    // }
     return (0);
 }

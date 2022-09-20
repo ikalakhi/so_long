@@ -24,9 +24,7 @@ char    **copy_map(char **map)
     char    **copy;
 
     i = -1;
-    while(map[++i])
-        ;
-
+    while(map[++i]);
     copy = malloc(sizeof(char *) * i+1);
     i = 0;
     while(map[i])
@@ -38,7 +36,7 @@ char    **copy_map(char **map)
     return(copy);
 }
 
-void   player_location(char **map, t_dimo  *dimo)
+t_dimo  *player_location(char **map, t_dimo  *dimo)
 {
     int     x;
     int     y;
@@ -59,6 +57,7 @@ void   player_location(char **map, t_dimo  *dimo)
         }
         y++;       
     }
+    return (dimo);
 }
 
 void    exite_location(t_dimo *dimo, char **map)

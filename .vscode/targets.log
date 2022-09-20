@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon Sep 19 20:38:35 2022
+# Make data base, printed on Tue Sep 20 12:31:31 2022
 
 # Variables
 
@@ -27,6 +27,7 @@ SRC = so_long.c so_long_utils.c map.c player_path.c external_functions/split.c e
 # makefile
 CURDIR := /Users/ikalakhi/Desktop/so_long
 # makefile
+ 
 SHELL = /bin/sh
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
@@ -43,17 +44,21 @@ MLX_FALGS = -lmlx -framework OpenGL -framework AppKit
 # environment
 VSCODE_CWD = /
 # environment
-Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.DAy4l6yFOq/Render
+Apple_PubSub_Socket_Render = /private/tmp/com.apple.launchd.Zxlwr4J60I/Render
 # environment
-PATH = /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+PATH = /Users/ikalakhi/.brew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/munki
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.rOOjRoQvuq/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.MFWQwVSeaK/Listeners
 # automatic
 %F = $(notdir $%)
+# environment
+HOMEBREW_TEMP = /tmp/ikalakhi/Homebrew/Temp
 # environment
 PWD = /Users/ikalakhi/Desktop/so_long
 # environment
@@ -65,11 +70,13 @@ HOME = /Users/ikalakhi
 # default
 MAKEFILEPATH := /Applications/Xcode.app/Contents/Developer/Makefiles
 # environment
-VSCODE_CODE_CACHE_PATH = /Users/ikalakhi/Library/Application Support/Code/CachedData/784b0177c56c607789f9638da7b6bf3230d47a8c
+VSCODE_CODE_CACHE_PATH = /Users/ikalakhi/Library/Application Support/Code/CachedData/74b1f979648cc44d385a2286793c226e611f59e7
 # environment
 LOGNAME = ikalakhi
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+ZSH = /Users/ikalakhi/.oh-my-zsh
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # automatic
@@ -81,6 +88,8 @@ MAKE = $(MAKE_COMMAND)
 # default
 MAKECMDGOALS := all
 # environment
+HOMEBREW_CACHE = /tmp/ikalakhi/Homebrew/Caches
+# environment
 SHLVL = 1
 # default
 MAKE_VERSION := 3.81
@@ -90,6 +99,8 @@ USER = ikalakhi
 .DEFAULT_GOAL := all
 # makefile (from `Makefile', line 13)
 NAME = so_long
+# environment
+LESS = -R
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # default
@@ -101,7 +112,7 @@ TMPDIR = /var/folders/zz/zyxvpxvq6csfxvn_n0000jc00004b0/T/
 # automatic
 *F = $(notdir $*)
 # environment
-VSCODE_IPC_HOOK = /Users/ikalakhi/Library/Application Support/Code/1.71.0-main.sock
+VSCODE_IPC_HOOK = /Users/ikalakhi/Library/Application Support/Code/1.71.2-main.sock
 # environment
 MallocNanoZone = 0
 # makefile
@@ -111,7 +122,7 @@ MFLAGS = -Rrqp
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
-XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000002.Electron
+XPC_SERVICE_NAME = com.apple.xpc.launchd.oneshot.0x10000003.Electron
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # automatic
@@ -125,9 +136,11 @@ MAKEFILES :=
 # automatic
 <F = $(notdir $<)
 # environment
+PAGER = less
+# environment
 LC_ALL = C
 # environment
-SECURITYSESSIONID = 186a8
+SECURITYSESSIONID = 186a7
 # automatic
 ^F = $(notdir $^)
 # default
@@ -139,9 +152,9 @@ MAKELEVEL := 0
 # environment
 LANG = C
 # environment
-VSCODE_PID = 4814
+VSCODE_PID = 3194
 # variable set hash-table stats:
-# Load=64/1024=6%, Rehash=0, Collisions=3/98=3%
+# Load=70/1024=7%, Rehash=0, Collisions=3/98=3%
 
 # Pattern-specific Variable Values
 
@@ -149,9 +162,9 @@ VSCODE_PID = 4814
 
 # Directories
 
-# . (device 16777227, inode 9040): 34 files, no impossibilities.
+# . (device 16777227, inode 9040): 35 files, no impossibilities.
 
-# 34 files, no impossibilities in 1 directories.
+# 35 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -164,14 +177,14 @@ all: so_long
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 window_rendering.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:37:42
+#  Last modified 2022-09-20 09:35:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -180,7 +193,7 @@ window_rendering.o:
 # Not a target:
 external_functions/get_next_line_utils.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:36:55
+#  Last modified 2022-09-20 09:35:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -189,7 +202,7 @@ external_functions/get_next_line_utils.o:
 # Not a target:
 collectibles_path.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:37:42
+#  Last modified 2022-09-20 09:35:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -213,7 +226,7 @@ Makefile:
 # Not a target:
 external_functions/substr.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:36:55
+#  Last modified 2022-09-20 09:35:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -222,7 +235,7 @@ external_functions/substr.o:
 # Not a target:
 map.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:36:55
+#  Last modified 2022-09-20 09:35:08
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -239,7 +252,7 @@ fclean: clean
 # Not a target:
 external_functions/strdup.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:36:55
+#  Last modified 2022-09-20 09:35:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -248,7 +261,7 @@ external_functions/strdup.o:
 # Not a target:
 so_long_utils.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:36:55
+#  Last modified 2022-09-20 09:35:08
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -257,7 +270,7 @@ so_long_utils.o:
 # Not a target:
 external_functions/get_next_line.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:36:55
+#  Last modified 2022-09-20 09:35:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -277,7 +290,7 @@ re: fclean all
 # Not a target:
 map_dimension.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:37:42
+#  Last modified 2022-09-20 09:35:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -294,7 +307,7 @@ clean:
 # Not a target:
 errors_handling.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:36:55
+#  Last modified 2022-09-20 09:35:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -303,7 +316,7 @@ errors_handling.o:
 # Not a target:
 player_path.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:36:55
+#  Last modified 2022-09-20 09:35:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -311,29 +324,11 @@ player_path.o:
 
 so_long: so_long.o so_long_utils.o map.o player_path.o external_functions/split.o external_functions/get_next_line.o external_functions/get_next_line_utils.o external_functions/substr.o external_functions/strdup.o errors_handling.o map_chrch.o valide_path.o collectibles_path.o map_dimension.o create_game.o window_rendering.o
 #  Implicit rule search has not been done.
-#  Implicit/static pattern stem: `'
- 
-#  File does not exist.
+#  Last modified 2022-09-20 11:41:52
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := so_long
-# automatic
-# % := 
-# automatic
-# * := 
-# automatic
-# + := so_long.o so_long_utils.o map.o player_path.o external_functions/split.o external_functions/get_next_line.o external_functions/get_next_line_utils.o external_functions/substr.o external_functions/strdup.o errors_handling.o map_chrch.o valide_path.o collectibles_path.o map_dimension.o create_game.o window_rendering.o
-# automatic
-# | := 
-# automatic
-# < := so_long.o
-# automatic
-# ^ := so_long.o so_long_utils.o map.o player_path.o external_functions/split.o external_functions/get_next_line.o external_functions/get_next_line_utils.o external_functions/substr.o external_functions/strdup.o errors_handling.o map_chrch.o valide_path.o collectibles_path.o map_dimension.o create_game.o window_rendering.o
-# automatic
-# ? := so_long.o so_long_utils.o map.o player_path.o external_functions/split.o external_functions/get_next_line.o external_functions/get_next_line_utils.o external_functions/substr.o external_functions/strdup.o errors_handling.o map_chrch.o valide_path.o collectibles_path.o map_dimension.o create_game.o window_rendering.o
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=3/14=21%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 28):
 	cc $(CFLAGS) $(MLX_FALGS) $(SRC)  -o $(NAME)
 	
@@ -341,16 +336,17 @@ so_long: so_long.o so_long_utils.o map.o player_path.o external_functions/split.
 # Not a target:
 so_long.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:37:58
+#  Last modified 2022-09-20 11:41:51
 #  File has been updated.
 #  Successfully updated.
+ 
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 create_game.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:37:42
+#  Last modified 2022-09-20 11:38:20
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -359,7 +355,7 @@ create_game.o:
 # Not a target:
 valide_path.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:37:42
+#  Last modified 2022-09-20 09:35:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -368,7 +364,7 @@ valide_path.o:
 # Not a target:
 map_chrch.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:37:10
+#  Last modified 2022-09-20 09:35:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -377,14 +373,14 @@ map_chrch.o:
 # Not a target:
 external_functions/split.o:
 #  Implicit rule search has been done.
-#  Last modified 2022-09-19 20:36:55
+#  Last modified 2022-09-20 09:35:09
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # files hash-table stats:
-# Load=24/1024=2%, Rehash=0, Collisions=0/58=0%
+# Load=24/1024=2%, Rehash=0, Collisions=0/57=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -396,6 +392,6 @@ external_functions/split.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Sep 19 20:38:35 2022
+# Finished Make data base on Tue Sep 20 12:31:31 2022
 
  

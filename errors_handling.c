@@ -63,24 +63,24 @@ void    check_walls(char **map)
     }
 }
 
-void    lines(char  **map, t_dimo dimo)
+void    lines(char  **map, t_dimo *dimo)
 {
     int i;
     int j;
 
-    i = dimo.num_lines;
+    i = dimo->num_lines;
     j = ft_strlen(map[0]);
     while (i > 0)
     {
-        if (j > dimo.line_lenth)
+        if (j > dimo->line_lenth)
             error("ERROR: dimensios are not valid\n");
         j = ft_strlen(map[i]);
         i--;
     }
 }
 
-void    rectangular_map(t_dimo dimo)
+void    rectangular_map(t_dimo *dimo)
 {
-    if (dimo.line_lenth < dimo.num_lines)
+    if (dimo->line_lenth < dimo->num_lines)
         error("ERROR: your map must be rectangular\n");
 }

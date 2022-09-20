@@ -41,11 +41,10 @@ int line_lenth(char *av)
     return (lenth);
 }
 
-t_dimo  map_dimension(char  *av)
+t_dimo  *map_dimension(char  *av, t_dimo  *dimo)
 {
-    t_dimo  dimo;
 
-    dimo.line_lenth = line_lenth(av);
-    dimo.num_lines = number_of_lines(av);
+    dimo->line_lenth = line_lenth(av);
+    dimo->num_lines = number_of_lines(av);
     return (dimo);
 }
