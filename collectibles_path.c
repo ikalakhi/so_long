@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   collectibles_path.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/23 14:20:42 by ikalakhi          #+#    #+#             */
+/*   Updated: 2022/09/23 14:21:57 by ikalakhi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "so_long.h"
 
-void    revese_collectibles_path(t_dimo *dimo, char **copy)
+void	revese_collectibles_path(t_dimo *dimo, char **copy)
 {
-    if(down_c(dimo, copy) == 0)
-        dimo->cy --;
-    else if(right_c(dimo, copy) == 0)
-        dimo->cx --;
+	if(down_c(dimo, copy) == 0)
+		dimo->cy --;
+	else if(right_c(dimo, copy) == 0)
+    dimo->cx --;
     else if(up_c(dimo, copy) == 0 )
         dimo->cy ++;
     else if(left_c(dimo, copy) == 0)
