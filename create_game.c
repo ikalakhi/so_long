@@ -14,21 +14,19 @@
 void	collectibles_cont(t_comp *mlx)
 {
 	mlx->conter_c++;
-	ft_printf("Collectibles_cont %d\n", mlx->dimo->c);
+	mlx->map[mlx->dimo->y][mlx->dimo->x] = '0';
 	mlx_put_image_to_window(mlx->init, mlx->win, mlx->b_image,
 		mlx->dimo->x * 64, mlx->dimo->y * 64);
 }
 
 void	move_player(t_comp *mlx)
 {
-	mlx->map[mlx->dimo->y][mlx->dimo->x] = '0';
 	mlx_put_image_to_window(mlx->init, mlx->win, mlx->p_image,
 		mlx->dimo->x * 64, mlx->dimo->y * 64);
 }
 
 void	navigate(t_comp *mlx, char c, int key)
 {
-	mlx->conter_c = 0;
 	mlx_put_image_to_window(mlx->init, mlx->win, mlx->b_image,
 		(mlx->dimo->x * 64), (mlx->dimo->y * 64));
 	if (c == 'y' && mlx->map[mlx->dimo->y + (1 * key)][mlx->dimo->x] != '1' &&
@@ -69,6 +67,9 @@ int	key_hook(int key_code, t_comp *mlx)
 	else if (key_code == D)
 		navigate(mlx, 'x', 1);
 	if (mlx->map[mlx->dimo->y][mlx->dimo->x] == 'E')
-		ft_printf("Congratulations you won\n");
+	{
+		ft_printf("\033[0;32mCongratulations you won\n");
+		exit(EXIT_SUCCESS);
+	}
 	return (0);
 }

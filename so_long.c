@@ -22,6 +22,7 @@ void	creat_game(t_comp *mlx, t_dimo *dimo, char **map)
 {
 	mlx->dimo = dimo;
 	mlx->map = copy_map(map);
+	mlx->conter_c = 0;
 	mlx_hook(mlx->win, 17, 0, escape, mlx);
 	mlx_key_hook(mlx->win, key_hook, mlx);
 }

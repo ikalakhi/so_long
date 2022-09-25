@@ -61,20 +61,15 @@ t_comp	*map_components(char **map, t_comp *comp)
 		i++;
 	}
 	if (comp->collectible == 0)
-		error("ERROR: there's no enough collectible\n");
-	if (comp->exit != 1)
-	{
-		if (comp->exit == 0)
-			error("ERROR: there's no EXIT, just like vim ;)\n");
-		else
-			error("ERROR: only one exite should be\n");
-	}
+		error("\033[1;31mERROR\033[0m: there's no enough collectible\n");
+	if (comp->exit < 1)
+		error("\033[1;31mERROR\033[0m: there's no EXIT, just like vim ;)\n");
 	if (comp->player != 1)
 	{
 		if (comp->player == 0)
-			error("ERROR: there's no player, how you wana play!!!\n");
+			error("\033[1;31mERROR\033[0m: there's no player, how you wana play!!!\n");
 		else
-			error("ERROR: don't cheat you only need one player to win\n");
+			error("\033[1;31mERROR\033[0m: don't cheat you only need one player to win\n");
 	}
 	return (comp);
 }

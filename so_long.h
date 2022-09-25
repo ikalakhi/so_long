@@ -75,9 +75,9 @@ void	playerspath(char **map, t_dimo *dimo);
 void	push_backgroud(char **map, t_comp *mlx);
 void	exite_location(t_dimo *dimo, char **map);
 void	revese_player_path(t_dimo *dimo, char **copy);
-void	visit(t_dimo *dimo, int x, int y, char **map);
 void	creat_map(char **map, t_comp *mlx, t_dimo *dimo);
 void	creat_game(t_comp *mlx, t_dimo *dimo, char **map);
+void	track_path(t_dimo *dimo, int x, int y, char **map);
 void	revese_collectibles_path(t_dimo *dimo, char **copy);
 void	collectibles_path(char **map, t_dimo *dimo, t_comp *comp);
 
@@ -99,7 +99,7 @@ int		down_c(t_dimo *dimo, char **copy);
 int		left_c(t_dimo *dimo, char **copy);
 int		right_c(t_dimo *dimo, char **copy);
 int		key_hook(int key_code, t_comp *mlx);
-int		visitable(t_dimo *dimo, int x, int y, char **map);
+int		can_be_path(t_dimo *dimo, int x, int y, char **map);
 
 t_dimo	*map_dimension(char *av, t_dimo *dimo);
 t_comp	*map_components(char **map, t_comp *comp);
