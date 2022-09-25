@@ -62,6 +62,7 @@ typedef struct t_components
 }	t_comp;
 
 void	error(char *s);
+void	free_map(int **tab);
 void	check_walls(char **map);
 void	images_path(t_comp *mlx);
 void	check_extension(char *av);

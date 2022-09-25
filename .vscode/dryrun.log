@@ -12,9 +12,9 @@ cc -Wall -Wextra -Werror    -c -o external_functions/substr.o external_functions
 cc -Wall -Wextra -Werror    -c -o external_functions/strdup.o external_functions/strdup.c
 cc -Wall -Wextra -Werror    -c -o errors_handling.o errors_handling.c
 cc -Wall -Wextra -Werror    -c -o map_chrch.o map_chrch.c
+ 
 cc -Wall -Wextra -Werror    -c -o valide_path.o valide_path.c
 cc -Wall -Wextra -Werror    -c -o collectibles_path.o collectibles_path.c
- 
 cc -Wall -Wextra -Werror    -c -o map_dimension.o map_dimension.c
 cc -Wall -Wextra -Werror    -c -o create_game.o create_game.c
 cc -Wall -Wextra -Werror    -c -o window_rendering.o window_rendering.c

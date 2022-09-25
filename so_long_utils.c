@@ -28,3 +28,12 @@ void	*ft_calloc(size_t count, size_t size)
 	}
 	return (tab);
 }
+
+void	free_map(int **tab)
+{
+	int	i;
+
+	i = 0;
+	while(tab[i++])
+		free(tab[i]);
+}

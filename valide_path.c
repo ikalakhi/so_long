@@ -17,7 +17,7 @@ void	visit_path(t_dimo *dimo, int x, int y, char **map)
 {
 	if (x == dimo->ex && y == dimo->ey)
 	{
-		dimo->inv_path = -1;
+		dimo->inv_path = 1;
 		return ;
 	}
 	dimo->tab[y][x] = 1;
@@ -29,7 +29,6 @@ void	visit_path(t_dimo *dimo, int x, int y, char **map)
 		visit_path(dimo, x - 1, y, map);
 	if (!dimo->inv_path && can_be_path(dimo, x, y + 1, map) != -1)
 		visit_path(dimo, x, y + 1, map);
-	dimo->tab[y][x] = 0;
 }
 
 void	check_path(char **map, t_dimo *dimo)
@@ -44,6 +43,14 @@ void	check_path(char **map, t_dimo *dimo)
     player_location(map, dimo);
     exite_location(dimo, map);
 	visit_path(dimo,dimo->x, dimo->y, map);
-	if (!dimo->inv_path)
+	if (dimo->inv_path)
+	{
+		//free_map(dimo->tab);
+		return ;
+	}
+	else
+	{
+		// free_map(dimo->tab);
 		error("\033[1;31merror:\033[0m\ninvalid path!\n");
+	}
 }
