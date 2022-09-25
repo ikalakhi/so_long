@@ -6,7 +6,7 @@
 /*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 14:22:14 by ikalakhi          #+#    #+#             */
-/*   Updated: 2022/09/23 14:29:33 by ikalakhi         ###   ########.fr       */
+/*   Updated: 2022/09/25 17:08:23 by ikalakhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -41,7 +41,8 @@ void	check_extension(char *av)
 		j++;
 	}
 	if (av[i] != '\0')
-		error("\033[1;31mERROR: \033[0mwrong file 'file extension should be .ber'\n");
+		error("\033[1;31mERROR: \033[0m\
+				wrong file 'file extension should be .ber'\n");
 }
 
 void	check_walls(char **map)
@@ -54,21 +55,24 @@ void	check_walls(char **map)
 	while (j > 0)
 	{
 		if (map[i][j] != '1')
-			error("\033[1;31mERROR:\033[0m you have a hole in your wall! (fixe it please)\n");
+			error("\033[1;31mERROR:\033[0m\
+					you have a hole in your wall! (fixe it please)\n");
 		j--;
 	}
 	j = ft_strlen(map[i]) - 2;
 	while (map[i])
 	{
 		if (map[i][0] != '1' || map[i][j] != '1')
-			error("\033[1;31mERROR:\033[0m you have a hole in your wall! (fixe it please)\n");
+			error("\033[1;31mERROR:\033[0m\
+					you have a hole in your wall! (fixe it please)\n");
 		i++;
 	}
 	i = i - 1;
 	while (j > 0)
 	{
 		if (map[i][j] != '1')
-			error("\033[1;31mERROR:\033[0m you have a hole in your wall! (fixe it please)\n");
+			error("\033[1;31mERROR:\033[0m\
+					you have a hole in your wall! (fixe it please)\n");
 		j--;
 	}
 }

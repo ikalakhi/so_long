@@ -6,7 +6,7 @@
 /*   By: ikalakhi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 14:30:05 by ikalakhi          #+#    #+#             */
-/*   Updated: 2022/09/23 14:38:21 by ikalakhi         ###   ########.fr       */
+/*   Updated: 2022/09/25 16:56:11 by ikalakhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -61,15 +61,19 @@ t_comp	*map_components(char **map, t_comp *comp)
 		i++;
 	}
 	if (comp->collectible == 0)
-		error("\033[1;31mERROR\033[0m: there's no enough collectible\n");
+		error("\033[1;31mERROR\033[0m:\
+				there's no enough collectible\n");
 	if (comp->exit < 1)
-		error("\033[1;31mERROR\033[0m: there's no EXIT, just like vim ;)\n");
+		error("\033[1;31mERROR\033[0m:\
+				there's no EXIT, just like vim ;)\n");
 	if (comp->player != 1)
 	{
 		if (comp->player == 0)
-			error("\033[1;31mERROR\033[0m: there's no player, how you wana play!!!\n");
+			error("\033[1;31mERROR\033[0m:\
+					there's no player, how you wana play!!!\n");
 		else
-			error("\033[1;31mERROR\033[0m: don't cheat you only need one player to win\n");
+			error("\033[1;31mERROR\033[0m:\
+					don't cheat you only need one player to win\n");
 	}
 	return (comp);
 }
