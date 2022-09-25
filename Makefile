@@ -14,10 +14,10 @@ NAME = so_long
 
 PRINTF = ft_printf/libftprintf.a
 
-SRC = so_long.c so_long_utils.c map.c player_path.c external_functions/split.c\
+SRC = so_long.c so_long_utils.c map.c external_functions/split.c\
 		external_functions/get_next_line.c external_functions/get_next_line_utils.c\
 		external_functions/substr.c external_functions/strdup.c errors_handling.c\
-		map_chrch.c valide_path.c collectibles_path.c map_dimension.c create_game.c\
+		map_chrch.c valide_path.c map_dimension.c create_game.c\
 		window_rendering.c 
 
 OBJS = $(SRC:.c=.o)

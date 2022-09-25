@@ -82,28 +82,3 @@ void    exite_location(t_dimo *dimo, char **map)
         y++;       
     }
 }
-
-t_dimo  *collectibles_location(char **map, t_dimo  *dimo)
-{
-    int     x;
-    int     y;
-
-    x = 0;
-    y = 0;
-    while(map[y])
-    {
-        x = 0;
-        while(map[y][x])
-        {
-            if (map[y][x] == 'C')
-            {
-                dimo->cx = x;
-                dimo->cy = y;
-                return(dimo);
-            }
-            x++;
-        }
-        y++;       
-    }
-    return(dimo);
-}

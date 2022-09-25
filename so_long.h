@@ -71,15 +71,12 @@ void	lines(char **map, t_dimo *dimo);
 void	check_path(char **map, t_dimo *dimo);
 void	fill_window(char **map, t_comp *path);
 void	*ft_calloc(size_t count, size_t size);
-void	playerspath(char **map, t_dimo *dimo);
 void	push_backgroud(char **map, t_comp *mlx);
 void	exite_location(t_dimo *dimo, char **map);
-void	revese_player_path(t_dimo *dimo, char **copy);
 void	creat_map(char **map, t_comp *mlx, t_dimo *dimo);
 void	creat_game(t_comp *mlx, t_dimo *dimo, char **map);
 void	track_path(t_dimo *dimo, int x, int y, char **map);
 void	revese_collectibles_path(t_dimo *dimo, char **copy);
-void	collectibles_path(char **map, t_dimo *dimo, t_comp *comp);
 
 char	**copy_map(char **map);
 char	**help_split(char ***map);
@@ -90,14 +87,6 @@ int		escape(t_comp *mlx);
 int		line_lenth(char *av);
 int		number_of_lines(char *av);
 int		map_strchr(char *s, char c);
-int		up(t_dimo *dimo, char **copy);
-int		down(t_dimo *dimo, char **copy);
-int		left(t_dimo *dimo, char **copy);
-int		up_c(t_dimo *dimo, char **copy);
-int		right(t_dimo *dimo, char **copy);
-int		down_c(t_dimo *dimo, char **copy);
-int		left_c(t_dimo *dimo, char **copy);
-int		right_c(t_dimo *dimo, char **copy);
 int		key_hook(int key_code, t_comp *mlx);
 int		can_be_path(t_dimo *dimo, int x, int y, char **map);
 
@@ -105,7 +94,6 @@ t_dimo	*map_dimension(char *av, t_dimo *dimo);
 t_comp	*map_components(char **map, t_comp *comp);
 t_dimo	*player_location(char **map, t_dimo *dimo);
 t_comp	*components_chrch(char *line, t_comp *comp);
-t_dimo	*collectibles_location(char **map, t_dimo *dimo);
 t_comp	*map_errors(char *av, char **map, t_dimo *dimo, t_comp *comp);
 
 #endif
