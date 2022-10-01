@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "so_long.h"
 
-int	can_be_path(t_dimo *dimo, int x, int y, char **map)
+int	can_be_path(char **map, t_dimo *dimo, /*t_comp *comp,*/ int x, int y)
 {
 	if (y <= 0 || x <= 0)
 		return (-1);
@@ -19,42 +19,47 @@ int	can_be_path(t_dimo *dimo, int x, int y, char **map)
 		return (-1);
 	if (map[y][x] == '1')
 		return (-1);
-	if (dimo->tab[y][x] == 1)
+	if (dimo->tab[y][x] == '1')
 		return (-1);
+	if (map[y][x] == 'C')
+	{
+		dimo->tab[y][x] = '0';
+		dimo->c --;
+	}
 	return (1);
 }
 
-void	track_path(t_dimo *dimo, int x, int y, char **map)
+void	back_track_path(t_dimo *dimo, t_comp *comp, int x, int y, char **map)
 {
-	if (x == dimo->ex && y == dimo->ey)
+	dimo->c = comp->collectible;
+	if (x == dimo->ex && y == dimo->ey && comp->conter_c == 0)
 	{
 		dimo->inv_path = 1;
 		return ;
 	}
-	dimo->tab[y][x] = 1;
-	if (!dimo->inv_path && can_be_path(dimo, x + 1, y, map) != -1)
-		track_path(dimo, x + 1, y, map);
-	if (!dimo->inv_path && can_be_path(dimo, x, y -1, map) != -1)
-		track_path(dimo, x, y -1, map);
-	if (!dimo->inv_path && can_be_path(dimo, x - 1, y, map) != -1)
-		track_path(dimo, x - 1, y, map);
-	if (!dimo->inv_path && can_be_path(dimo, x, y + 1, map) != -1)
-		track_path(dimo, x, y + 1, map);
+	dimo->tab[y][x] = '1';
+	if (!dimo->inv_path && can_be_path(map, dimo, /*comp,*/ x + 1, y) != -1)
+		back_track_path(dimo, comp, x + 1, y, map);
+	if (!dimo->inv_path && can_be_path(map, dimo, /*comp,*/ x, y - 1) != -1)
+		back_track_path(dimo, comp, x, y -1, map);
+	if (!dimo->inv_path && can_be_path(map, dimo, /*comp,*/ x - 1, y) != -1)
+		back_track_path(dimo, comp, x - 1, y, map);
+	if (!dimo->inv_path && can_be_path(map, dimo, /*comp,*/ x, y + 1) != -1)
+		back_track_path(dimo, comp, x, y + 1, map);
 }
 
-void	check_path(char **map, t_dimo *dimo)
+void	check_path(char **map, t_dimo *dimo, t_comp *comp)
 {
 	int	i;
 
 	i = 0;
 	dimo->inv_path = 0;
-	dimo->tab = (int **)malloc(sizeof(int *) * dimo->num_lines);
-	while (i < dimo->num_lines)
-		dimo->tab[i++] = (int *)malloc(sizeof(int) * dimo->line_lenth);
+	dimo->tab = copy_map(map);
 	player_location(map, dimo);
 	exite_location(dimo, map);
-	track_path(dimo, dimo->x, dimo->y, map);
-	if (dimo->inv_path)
+	back_track_path(dimo, comp, dimo->x, dimo->y, map);
+	if (dimo->inv_path == 1 || dimo->c == 0)
 		return ;
-	error("\033[1;31merror:\033[0m\ninvalid path!\n");
+	else
+		error("\033[1;31merror:\033[0m\ninvalid path!\n");
 }

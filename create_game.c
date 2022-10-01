@@ -11,6 +11,13 @@
 /* ************************************************************************** */
 #include "so_long.h"
 
+int	escape(t_comp *mlx)
+{
+	mlx_destroy_window(mlx->init, mlx->win);
+	ft_printf("\n SAAFI te9adaw like?\n");
+	exit(EXIT_SUCCESS);
+}
+
 void	collectibles_cont(t_comp *mlx)
 {
 	mlx->conter_c++;
@@ -56,19 +63,20 @@ void	navigate(t_comp *mlx, char c, int key)
 
 int	key_hook(int key_code, t_comp *mlx)
 {
-	if (key_code == ESC)
+	if (key_code == 53)
 		escape(mlx);
-	else if (key_code == W)
+	else if (key_code == 13)
 		navigate(mlx, 'y', -1);
-	else if (key_code == A)
+	else if (key_code == 0)
 		navigate(mlx, 'x', -1);
-	else if (key_code == S)
+	else if (key_code == 1)
 		navigate(mlx, 'y', 1);
-	else if (key_code == D)
+	else if (key_code == 2)
 		navigate(mlx, 'x', 1);
 	if (mlx->map[mlx->dimo->y][mlx->dimo->x] == 'E')
 	{
-		ft_printf("\033[0;32mCongratulations you won\n");
+		mlx_destroy_window(mlx->init, mlx->win);
+		ft_printf("\033[0;64mCongratulations you won\n");
 		exit(EXIT_SUCCESS);
 	}
 	return (0);

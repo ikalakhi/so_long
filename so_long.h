@@ -12,7 +12,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "external_functions/libft.h"
+# include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
 # include <sys/types.h>
 # include <sys/uio.h>
@@ -20,20 +20,14 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <mlx.h>
-# include <stdio.h>
-
-# define ESC 53
-# define W 13
-# define A 0
-# define S 1
-# define D 2
 
 typedef struct t_dimension
 {
 	int	line_lenth;
+	int	wrong_path;
 	int	num_lines;
 	int	inv_path;
-	int	**tab;
+	char	**tab;
 	int	visited;
 	int	ex;
 	int	ey;
@@ -49,6 +43,7 @@ typedef struct t_components
 	int		collectible;
 	int		conter_c;
 	int		player;
+	int		zero;
 	int		exit;
 	void	*win;
 	void	*init;
@@ -63,20 +58,21 @@ typedef struct t_components
 
 void	error(char *s);
 void	free_map(int **tab);
+void	undifined(char **map);
 void	check_walls(char **map);
 void	images_path(t_comp *mlx);
 void	check_extension(char *av);
 void	rectangular_map(t_dimo *dimo);
 void	lines(char **map, t_dimo *dimo);
-void	check_path(char **map, t_dimo *dimo);
 void	fill_window(char **map, t_comp *path);
-void	*ft_calloc(size_t count, size_t size);
 void	push_backgroud(char **map, t_comp *mlx);
 void	exite_location(t_dimo *dimo, char **map);
 void	creat_map(char **map, t_comp *mlx, t_dimo *dimo);
 void	creat_game(t_comp *mlx, t_dimo *dimo, char **map);
-void	track_path(t_dimo *dimo, int x, int y, char **map);
+void	check_path(char **map, t_dimo *dimo, t_comp *comp);
 void	revese_collectibles_path(t_dimo *dimo, char **copy);
+void    collectibles_path(t_dimo *dimo,t_comp *comp, char **map);
+void	back_track_path(t_dimo *dimo, t_comp *comp, int x, int y, char **map);
 
 char	**copy_map(char **map);
 char	**help_split(char ***map);
@@ -88,7 +84,7 @@ int		line_lenth(char *av);
 int		number_of_lines(char *av);
 int		map_strchr(char *s, char c);
 int		key_hook(int key_code, t_comp *mlx);
-int		can_be_path(t_dimo *dimo, int x, int y, char **map);
+int		can_be_path(char **map, t_dimo *dimo, /*t_comp *comp,*/ int x, int y);
 
 t_dimo	*map_dimension(char *av, t_dimo *dimo);
 t_comp	*map_components(char **map, t_comp *comp);

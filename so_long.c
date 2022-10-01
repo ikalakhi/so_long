@@ -11,13 +11,6 @@
 /* ************************************************************************** */
 #include "so_long.h"
 
-int	escape(t_comp *mlx)
-{
-	mlx_destroy_window(mlx->init, mlx->win);
-	ft_printf("\n SAAFI te9adaw like?\n");
-	exit(EXIT_SUCCESS);
-}
-
 void	creat_game(t_comp *mlx, t_dimo *dimo, char **map)
 {
 	mlx->dimo = dimo;
@@ -41,7 +34,7 @@ int	main(int ac, char **av)
 	dimo = map_dimension(av[1], dimo);
 	map = read_map(av[1], dimo);
 	mlx = map_errors(av[1], map, dimo, mlx);
-	check_path(map, dimo);
+	check_path(map, dimo, mlx);
 	creat_map(map, mlx, dimo);
 	creat_game(mlx, dimo, map);
 	mlx_loop(mlx->init);

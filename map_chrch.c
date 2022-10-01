@@ -94,3 +94,23 @@ void	exite_location(t_dimo *dimo, char **map)
 		y++;
 	}
 }
+
+void	undifined(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while(map[i])
+	{
+		j = ft_strlen(map[i]) - 2;
+		while (j > 0)
+		{
+			if (map[i][j] != '0' && map[i][j] != '1'
+				&& map[i][j] != 'E' && map[i][j] != 'C' && map[i][j] != 'P')
+				error("\033[1;31mERROR\033[0m: **invalid map!\n");
+			j--;
+		}
+		i++;
+	}
+}

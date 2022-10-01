@@ -11,15 +11,6 @@
 /* ************************************************************************** */
 #include "so_long.h"
 
-void	creat_map(char **map, t_comp *mlx, t_dimo *dimo)
-{
-	mlx->init = mlx_init();
-	images_path(mlx);
-	mlx->win = mlx_new_window(mlx->init, (dimo->line_lenth - 1) * 64, \
-			(dimo->num_lines * 64), "so_long");
-	fill_window(map, mlx);
-}
-
 void	images_path(t_comp *mlx)
 {
 	int	img_width;
@@ -35,6 +26,26 @@ void	images_path(t_comp *mlx)
 			&img_width, &img_height);
 	mlx->e_image = mlx_xpm_file_to_image(mlx->init, "./images/exit.xpm",
 			&img_width, &img_height);
+}
+
+void	push_backgroud(char **map, t_comp *mlx)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
+			mlx_put_image_to_window(mlx->init, mlx->win, mlx->b_image,
+				j * 64, i * 64);
+			j++;
+		}
+		i++;
+	}
 }
 
 void	push_components(char *map, t_comp *mlx, int i)
@@ -75,22 +86,11 @@ void	fill_window(char **map, t_comp *mlx)
 	}
 }
 
-void	push_backgroud(char **map, t_comp *mlx)
+void	creat_map(char **map, t_comp *mlx, t_dimo *dimo)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j])
-		{
-			mlx_put_image_to_window(mlx->init, mlx->win, mlx->b_image,
-				j * 64, i * 64);
-			j++;
-		}
-		i++;
-	}
+	mlx->init = mlx_init();
+	images_path(mlx);
+	mlx->win = mlx_new_window(mlx->init, (dimo->line_lenth - 1) * 64, \
+			(dimo->num_lines * 64), "so_long");
+	fill_window(map, mlx);
 }

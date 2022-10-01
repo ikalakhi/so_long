@@ -42,9 +42,11 @@ t_comp	*map_errors(char *av, char **map, t_dimo *dimo, t_comp *comp)
 	comp->collectible = 0;
 	comp->player = 0;
 	comp->exit = 0;
+	comp->zero = 0;
 	check_extension(av);
 	lines(map, dimo);
 	rectangular_map(dimo);
+	undifined(map);
 	comp = map_components(map, comp);
 	check_walls(map);
 	return (comp);
@@ -60,6 +62,8 @@ t_comp	*map_components(char **map, t_comp *comp)
 		components_chrch(map[i], comp);
 		i++;
 	}
+	if (comp->collectible == 0 && comp->exit == 0 && comp->player == 0)
+		error("\033[1;31mERROR\033[0m: invalid map!\n");
 	if (comp->collectible == 0)
 		error("\033[1;31mERROR\033[0m:\
 				there's no enough collectible\n");

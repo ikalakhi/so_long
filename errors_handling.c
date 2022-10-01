@@ -40,9 +40,9 @@ void	check_extension(char *av)
 		i++;
 		j++;
 	}
-	if (av[i] != '\0')
-		error("\033[1;31mERROR: \033[0m\
-				wrong file 'file extension should be .ber'\n");
+	if (av[i] != '\0' || av[i] != av[j])
+		error("\033[1;31mERROR:\033[0m\
+			wrong file 'file extension should be .ber'\n");
 }
 
 void	check_walls(char **map)

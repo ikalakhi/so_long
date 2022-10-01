@@ -14,9 +14,9 @@ NAME = so_long
 
 PRINTF = ft_printf/libftprintf.a
 
-SRC = so_long.c map.c external_functions/split.c map_chrch.c\
-		external_functions/get_next_line.c external_functions/get_next_line_utils.c\
-		external_functions/substr.c external_functions/strdup.c errors_handling.c\
+SRC = so_long.c map.c libft/split.c map_chrch.c collectibles_path.c\
+		libft/get_next_line.c libft/get_next_line_utils.c\
+		libft/substr.c libft/strdup.c errors_handling.c\
 		valide_path.c map_dimension.c create_game.c window_rendering.c 
 
 OBJS = $(SRC:.c=.o)
