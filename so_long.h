@@ -28,6 +28,7 @@ typedef struct t_dimension
 	int	num_lines;
 	int	inv_path;
 	char	**tab;
+	char	**tab2;
 	int	visited;
 	int	ex;
 	int	ey;
@@ -71,7 +72,6 @@ void	creat_map(char **map, t_comp *mlx, t_dimo *dimo);
 void	creat_game(t_comp *mlx, t_dimo *dimo, char **map);
 void	check_path(char **map, t_dimo *dimo, t_comp *comp);
 void	revese_collectibles_path(t_dimo *dimo, char **copy);
-void    collectibles_path(t_dimo *dimo,t_comp *comp, char **map);
 void	back_track_path(t_dimo *dimo, t_comp *comp, int x, int y, char **map);
 
 char	**copy_map(char **map);
@@ -84,7 +84,7 @@ int		line_lenth(char *av);
 int		number_of_lines(char *av);
 int		map_strchr(char *s, char c);
 int		key_hook(int key_code, t_comp *mlx);
-int		can_be_path(char **map, t_dimo *dimo, /*t_comp *comp,*/ int x, int y);
+int		can_be_path(t_dimo *dimo, int x, int y);
 
 t_dimo	*map_dimension(char *av, t_dimo *dimo);
 t_comp	*map_components(char **map, t_comp *comp);
