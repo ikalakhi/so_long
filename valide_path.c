@@ -19,6 +19,11 @@ int	can_be_path(t_dimo *dimo, int x, int y)
 		return (-1);
 	if (dimo->tab[y][x] == '1')
 		return (-1);
+	if (dimo->tab[y][x] == 'E')
+	{
+		dimo->tab[y][x] = '0';
+		dimo->exit--;
+	}
 	if (dimo->tab[y][x] == 'C')
 	{
 		dimo->tab[y][x] = '0';
@@ -29,16 +34,13 @@ int	can_be_path(t_dimo *dimo, int x, int y)
 
 void	back_track_path(t_dimo *dimo, t_comp *comp, int x, int y, char **map)
 {
-	if (x == dimo->ex && y == dimo->ey && dimo->c == 0)
-	{
-		dimo->inv_path = 1;
+	if (dimo->exit == 0 && dimo->c == 0)
 		return ;
-	}
 	dimo->tab[y][x] = '1';
 	if (!dimo->inv_path && can_be_path(dimo, x + 1, y) != -1)
 		back_track_path(dimo, comp, x + 1, y, map);
 	if (!dimo->inv_path && can_be_path(dimo, x, y - 1) != -1)
-		back_track_path(dimo, comp, x, y -1, map);
+		back_track_path(dimo, comp, x, y - 1, map);
 	if (!dimo->inv_path && can_be_path(dimo, x - 1, y) != -1)
 		back_track_path(dimo, comp, x - 1, y, map);
 	if (!dimo->inv_path && can_be_path(dimo, x, y + 1) != -1)
@@ -50,13 +52,14 @@ void	check_path(char **map, t_dimo *dimo, t_comp *comp)
 	int	i;
 
 	i = 0;
+	dimo->exit = 1;
 	dimo->inv_path = 0;
 	dimo->c = comp->collectible;
 	dimo->tab = copy_map(map);
 	player_location(map, dimo);
 	exite_location(dimo, map);
 	back_track_path(dimo, comp, dimo->x, dimo->y, map);
-	if (dimo->inv_path == 1 || dimo->c == 0)
+	if (dimo->exit == 0 && dimo->c == 0)
 		return ;
 	else
 		error("\033[1;31merror:\033[0m\ninvalid path!\n");

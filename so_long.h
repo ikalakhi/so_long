@@ -37,6 +37,7 @@ typedef struct t_dimension
 	int	c;
 	int	x;
 	int	y;
+	int	exit;
 }	t_dimo;
 
 typedef struct t_components

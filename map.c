@@ -67,7 +67,7 @@ t_comp	*map_components(char **map, t_comp *comp)
 	if (comp->collectible == 0)
 		error("\033[1;31mERROR\033[0m:\
 				there's no enough collectible\n");
-	if (comp->exit < 1)
+	if (comp->exit != 1)
 		error("\033[1;31mERROR\033[0m:\
 				there's no EXIT, just like vim ;)\n");
 	if (comp->player != 1)
